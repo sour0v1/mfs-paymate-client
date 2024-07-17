@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { FaRegEyeSlash } from 'react-icons/fa';
 import { IoEyeOutline } from 'react-icons/io5';
 import logo from '../../assets/paymate-login.webp'
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import useAxiosSecure from '../../hook/useAxiosSecure';
 
@@ -13,10 +13,12 @@ const Login = () => {
     const [logError, setLogError] =  useState(null);
     const [logSuccess, setLogSuccess] =  useState(null);
     const axiosSecure = useAxiosSecure();
+    const navigate = useNavigate();
 
     const onSubmit = async (data) => {
         setLoading(true);
         console.log(data)
+        const userIdentity = data?.userIdentity;
 
         const res = await axiosSecure.post(`/log-user`, data)
         console.log(res.data);
@@ -28,6 +30,9 @@ const Login = () => {
             setLogSuccess('success');
             setLoading(false);
             setLogError(null);
+            localStorage.setItem('userIdentity', `${userIdentity}`);
+            navigate('/home');
+
         }
 
     };
