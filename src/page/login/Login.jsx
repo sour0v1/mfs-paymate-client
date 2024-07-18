@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { FaRegEyeSlash } from 'react-icons/fa';
 import { IoEyeOutline } from 'react-icons/io5';
 import logo from '../../assets/paymate-login.webp'
@@ -30,7 +30,7 @@ const Login = () => {
             setLogSuccess('success');
             setLoading(false);
             setLogError(null);
-            localStorage.setItem('userIdentity', `${userIdentity}`);
+           localStorage.setItem('userIdentity', `${userIdentity}`);
             navigate('/home');
 
         }
