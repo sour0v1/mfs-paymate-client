@@ -5,6 +5,9 @@ import App from "../App";
 import Home from "../page/home/Home";
 import AllUsers from "../dashboard/users/AllUsers";
 import AllAgents from "../dashboard/agents/AllAgents";
+import SendMoney from "../dashboard/users/sendMoney/SendMoney";
+import ConfirmSendMoney from "../dashboard/users/ConfirmSendMoney";
+import CheckNumber from "../dashboard/users/CheckNumber";
 // import PrivateRoute from "../routes/PrivateRoute";
 
 const router = createBrowserRouter([
@@ -31,6 +34,20 @@ const router = createBrowserRouter([
                     {
                         path : 'all-agents',
                         element : <AllAgents></AllAgents>
+                    }
+                ]
+            },
+            {
+                path : '/user/send-money',
+                element : <SendMoney></SendMoney>,
+                children : [
+                    {
+                        path : '/user/send-money',
+                        element : <CheckNumber></CheckNumber>
+                    },
+                    {
+                        path : 'confirm',
+                        element : <ConfirmSendMoney></ConfirmSendMoney>
                     }
                 ]
             }
