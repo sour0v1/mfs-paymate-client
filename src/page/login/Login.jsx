@@ -56,7 +56,7 @@ const Login = () => {
                         <button className='py-3 w-1/3 bg-white text-[#006769]  flex justify-center items-center'>
                             <span className="loading loading-spinner loading-sm"></span>
                         </button> :
-                        <input className='py-3 w-1/3 border border-white text-white hover:bg-white hover:text-[#006769]' type="submit" value='Sign Up' />
+                        <input className='py-3 w-1/3 border border-white text-white hover:bg-white hover:text-[#006769]' type="submit" value='Sign In' />
                 }
                 {/* <input className='py-3 w-1/3 border border-white text-white hover:bg-white hover:text-[#006769]' type="submit" value='Log In' /> */}
                 <div className='mt-4'>

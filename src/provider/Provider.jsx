@@ -15,12 +15,13 @@ const Provider = ({ children }) => {
             const res = await axiosSecure.get(`/user-info?userIdentity=${userIdentity}`)
             return res.data;
         },
-        refetchInterval : 100
+        // refetchInterval : 100
+        enabled : !! userIdentity
     })
     console.log(userInfo)
 
     const value = {
-        userInfo, setUserIdentity, isPending
+        userInfo, setUserIdentity, isPending,
     }
     return (
         <AuthContext.Provider value={value}>

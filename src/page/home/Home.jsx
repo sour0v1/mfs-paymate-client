@@ -6,10 +6,15 @@ import { FaMoneyCheckDollar } from 'react-icons/fa6';
 import { IoLogOut } from 'react-icons/io5';
 import { IoIosSend } from 'react-icons/io';
 import { BsCashCoin } from 'react-icons/bs';
-import { Navigate, useNavigate } from 'react-router-dom';
+import { Link, Navigate, Outlet, useNavigate } from 'react-router-dom';
+import useAxiosSecure from '../../hook/useAxiosSecure';
+import BalanceBtn from '../../components/BalanceBtn';
 
 const Home = () => {
     const { setUserIdentity, userInfo, isPending } = useContext(AuthContext);
+    const [balance, setBalance] = useState(null);
+    const [loading, setLoading] = useState(false);
+    const axiosSecure = useAxiosSecure();
     const navigate = useNavigate();
     console.log(userInfo);
 
@@ -30,16 +35,41 @@ const Home = () => {
         }
     }, [])
 
+    const handleCheckBalance = async () => {
+        setLoading(true);
+        const balance = await axiosSecure.get(`/check-balance?email=${userInfo?.email}`);
+        const netBalance = balance?.data.balance
+        setBalance(netBalance);
+        if (netBalance) {
+            setLoading(false);
+        }
+        console.log('hello')
+
+    }
+
+    useEffect(() => {
+        const timer = setTimeout(() => {
+            setBalance(null);
+            console.log('hello');
+        }, 2000)
+
+        return () => clearTimeout(timer)
+    }, [balance])
+
     if (isPending) {
         return <div className='w-screen h-screen flex justify-center items-center text-[#006769]'>loading...</div>
     }
+    if (!userInfo) {
+        return <div className='w-screen h-screen flex justify-center items-center text-[#006769]'>loading...</div>
+    }
+
 
     if (userInfo?.role === 'user') {
         return (
             <div>
                 <div className='bg-[#006769] py-6 px-9 flex justify-between items-center'>
                     <img className='w-48' src={logo} alt="" />
-                    <button className='bg-white text-[#006769] py-2 px-6 rounded-full'>Tap to check balance</button>
+                    <BalanceBtn handleCheckBalance={handleCheckBalance} loading={loading} balance={balance}></BalanceBtn>
                     <div className='text-white flex justify-center items-center gap-3'>
                         <span className='text-4xl'><FaRegUserCircle /></span>
                         <div className='flex flex-col justify-center items-start'>
@@ -74,12 +104,13 @@ const Home = () => {
             </div>
         );
     }
+
     if (userInfo?.role === 'agent') {
         return (
             <div>
                 <div className='bg-[#006769] py-6 px-9 flex justify-between items-center'>
                     <img className='w-48' src={logo} alt="" />
-                    <button className='bg-white text-[#006769] py-2 px-6 rounded-full'>Tap to check balance</button>
+                    <BalanceBtn handleCheckBalance={handleCheckBalance} loading={loading} balance={balance}></BalanceBtn>
                     <div className='text-white flex justify-center items-center gap-3'>
                         <span className='text-4xl'><FaRegUserCircle /></span>
                         <div className='flex flex-col justify-center items-start'>
@@ -109,6 +140,36 @@ const Home = () => {
                 </div>
             </div>
         );
+    }
+
+    if (userInfo?.role === 'admin') {
+        return (
+            <div>
+                <div className='bg-[#006769] py-6 px-9 flex justify-between items-center'>
+                    <img className='w-48' src={logo} alt="" />
+                    <button onClick={handleCheckBalance} className='bg-white text-[#006769] py-2 px-6 rounded-full'>Tap to check balance</button>
+                    <div className='text-white flex justify-center items-center gap-3'>
+                        <span className='text-4xl'><FaRegUserCircle /></span>
+                        <div className='flex flex-col justify-center items-start'>
+                            <span>{userInfo?.name}</span>
+                            <span>{userInfo?.phone}</span>
+                            <button onClick={handleLogOut} className='underline text-white'>Log Out</button>
+                        </div>
+                    </div>
+                </div>
+                <h1 className='text-2xl text-[#006769] text-center font-bold my-6'>Dashboard</h1>
+                <div className='max-w-5xl mx-auto border flex justify-center items-center gap-9 p-6'>
+                    <div className='w-1/3 border flex flex-col justify-center items-start gap-2 text-[#006769] underline p-4'>
+                        <Link to={'/home/all-users'}>All Users</Link>
+                        <Link to={'/home/all-agents'}>All Agents</Link>
+                    </div>
+                    <div className='w-2/3 border'>
+                        <Outlet></Outlet>
+                    </div>
+
+                </div>
+            </div>
+        )
     }
 };
 

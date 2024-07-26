@@ -3,6 +3,8 @@ import Login from "../page/login/Login";
 import SignUp from "../page/signUp/SignUp";
 import App from "../App";
 import Home from "../page/home/Home";
+import AllUsers from "../dashboard/users/AllUsers";
+import AllAgents from "../dashboard/agents/AllAgents";
 // import PrivateRoute from "../routes/PrivateRoute";
 
 const router = createBrowserRouter([
@@ -20,7 +22,17 @@ const router = createBrowserRouter([
             },
             {
                 path : '/home',
-                element : <Home></Home>
+                element : <Home></Home>,
+                children : [
+                    {
+                        path : 'all-users',
+                        element : <AllUsers></AllUsers>
+                    },
+                    {
+                        path : 'all-agents',
+                        element : <AllAgents></AllAgents>
+                    }
+                ]
             }
         ]
     }
