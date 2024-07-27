@@ -2,6 +2,7 @@ import React, { useContext, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import useAxiosSecure from '../../hook/useAxiosSecure';
 import { AuthContext } from '../../provider/Provider';
+import { RxCross1 } from 'react-icons/rx';
 
 const ConfirmSendMoney = () => {
     const location = useLocation();
@@ -53,7 +54,7 @@ const ConfirmSendMoney = () => {
     const changed = phoneValue?.length > 0 && passValue?.length > 0;
     return (
         <div className='w-full text-center flex flex-col justify-center items-center gap-4'>
-            <p className='text-white mx-auto'>Send money to <span className='px-2 py-1 bg-white text-[#006769]'>{phoneNumber}</span></p>
+            <p className='text-white mx-auto'>Send money to <span className='py-1 underline'>{phoneNumber}</span></p>
             <p className='text-white'>{message}</p>
             <form onSubmit={handleConfirm} className='w-full lg:w-1/4 mx-auto space-y-3'>
                 <input onChange={handlePhoneChange} className='w-full py-3 px-4 outline-none bg-white' name='balance' type='number' placeholder='Enter amount' />
@@ -63,9 +64,9 @@ const ConfirmSendMoney = () => {
                 </button>
             </form>
             {modified &&
-                <div className='absolute inset-0 bg-black bg-opacity-50 flex justify-center items-center'>
-                    <div className='bg-white p-4 w-full lg:w-1/3 mx-4 lg:mx-0 relative'>
-                        <button className='absolute top-2 right-4 text-2xl' onClick={() => setModified(false)}>X</button>
+                <div className='absolute inset-0 bg-black bg-opacity-80 flex justify-center items-center'>
+                    <div className='bg-white p-4 w-full lg:w-1/3 mx-4 lg:mx-0 relative rounded-xl'>
+                        <button className='absolute top-3 right-4 text-xl p-2 rounded-full hover:bg-gray-100' onClick={() => setModified(false)}><RxCross1 /></button>
                         <p className='my-16 text-xl text-[#006769]'>Success!</p>
                     </div>
                 </div>
