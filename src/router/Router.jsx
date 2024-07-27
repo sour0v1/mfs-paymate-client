@@ -8,6 +8,7 @@ import AllAgents from "../dashboard/agents/AllAgents";
 import SendMoney from "../dashboard/users/sendMoney/SendMoney";
 import ConfirmSendMoney from "../dashboard/users/ConfirmSendMoney";
 import CheckNumber from "../dashboard/users/CheckNumber";
+import UserTransactions from "../dashboard/users/userTransactions/UserTransactions";
 // import PrivateRoute from "../routes/PrivateRoute";
 
 const router = createBrowserRouter([
@@ -50,6 +51,10 @@ const router = createBrowserRouter([
                         element : <ConfirmSendMoney></ConfirmSendMoney>
                     }
                 ]
+            },
+            {
+                path : '/user/transactions',
+                element : <UserTransactions></UserTransactions>
             }
         ]
     }

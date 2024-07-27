@@ -10,8 +10,8 @@ const Login = () => {
     const [open, setOpen] = useState(false);
     const { register, handleSubmit, watch, formState: { errors } } = useForm();
     const [loading, setLoading] = useState(false);
-    const [logError, setLogError] =  useState(null);
-    const [logSuccess, setLogSuccess] =  useState(null);
+    const [logError, setLogError] = useState(null);
+    const [logSuccess, setLogSuccess] = useState(null);
     const axiosSecure = useAxiosSecure();
     const navigate = useNavigate();
 
@@ -22,15 +22,15 @@ const Login = () => {
 
         const res = await axiosSecure.post(`/log-user`, data)
         console.log(res.data);
-        if(res.data?.message){
+        if (res.data?.message) {
             setLogError(res.data?.message);
             setLoading(false);
         }
-        else{
+        else {
             setLogSuccess('success');
             setLoading(false);
             setLogError(null);
-           localStorage.setItem('userIdentity', `${userIdentity}`);
+            localStorage.setItem('userIdentity', `${userIdentity}`);
             navigate('/home');
 
         }

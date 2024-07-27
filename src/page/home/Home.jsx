@@ -95,10 +95,10 @@ const Home = () => {
                             <span className='text-6xl text-[#006769]'><IoIosSend /></span>
                             <p className='text-[#006769]'>Send Money</p>
                         </Link>
-                        <div className='border p-6 flex flex-col justify-center items-center gap-2 w-48 h-52'>
+                        <Link to={'/user/transactions'} className='border p-6 flex flex-col justify-center items-center gap-2 w-48 h-52'>
                             <span className='text-6xl text-[#006769]'><FaMoneyCheckDollar /></span>
                             <p className='text-[#006769]'>Transactions</p>
-                        </div>
+                        </Link>
                     </div>
                 </div>
             </div>
