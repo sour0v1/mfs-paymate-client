@@ -37,7 +37,7 @@ const SignUp = () => {
     };
 
     return (
-        <div className='bg-[#006769] h-screen w-full flex justify-center items-center px-4 lg:px-0'>
+        <div className='bg-[#006769] min-h-screen w-full flex justify-center items-center px-4 py-6 lg:px-0'>
 
             <form onSubmit={handleSubmit(onSubmit)} className='w-full lg:w-1/3 flex flex-col justify-center items-center gap-4 text-[#006769]'>
                 <img className='mb-9' src={logo} alt="" />

@@ -30,7 +30,7 @@ const CheckNumber = () => {
         e.preventDefault();
         const phone = e.target.value;
         console.log(phone)
-        if (phone.length >= 11) {
+        if (phone.length) {
             console.log('right');
             setCheckNumber(false);
         }
@@ -45,7 +45,7 @@ const CheckNumber = () => {
             <span className='text-white'>{message}</span>
             <div className='w-full flex flex-row justify-center items-center gap-1'>
                 <input className='w-full py-3 px-4 outline-none' name='phone' type="number" placeholder='Enter phone number' />
-                <button className={`bg-white  ${checkNumber ? 'text-gray-600 bg-gray-200' : 'text-[#006769]'} text-2xl py-3 px-3`} disabled={checkNumber ? true : false}>
+                <button className={`bg-white  ${checkNumber ? 'text-gray-600 bg-gray-300' : 'text-[#006769]'} text-2xl py-3 px-3`} disabled={checkNumber ? true : false}>
                     <IoIosArrowRoundForward />
                 </button>
             </div>
