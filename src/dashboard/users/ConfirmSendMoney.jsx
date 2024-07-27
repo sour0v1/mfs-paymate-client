@@ -64,13 +64,10 @@ const ConfirmSendMoney = () => {
             </form>
             {modified &&
                 <div className='absolute inset-0 bg-black bg-opacity-50 flex justify-center items-center'>
-                    {loading ?
-                        <span className="loading loading-spinner loading-sm text-white"></span> :
-                        <div className='bg-white p-4 w-1/3 relative'>
-                            <button className='absolute top-2 right-4 text-2xl' onClick={() => setModified(false)}>X</button>
-                            <p className='my-9 text-xl text-[#006769]'>Success!</p>
-                        </div>
-                    }
+                    <div className='bg-white p-4 w-full lg:w-1/3 mx-4 lg:mx-0 relative'>
+                        <button className='absolute top-2 right-4 text-2xl' onClick={() => setModified(false)}>X</button>
+                        <p className='my-16 text-xl text-[#006769]'>Success!</p>
+                    </div>
                 </div>
             }
             {loading &&

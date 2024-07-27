@@ -68,12 +68,12 @@ const Home = () => {
         return (
             <div>
                 <div className='bg-[#006769] py-6 px-9 flex flex-col lg:flex-row justify-between items-center gap-4'>
-                    <img className='w-48' src={logo} alt="" />
+                    <img className='w-36 lg:w-48' src={logo} alt="" />
                     <BalanceBtn handleCheckBalance={handleCheckBalance} loading={loading} balance={balance}></BalanceBtn>
                     <div className='text-white flex justify-center items-center gap-3'>
-                        <span className='text-4xl'><FaRegUserCircle /></span>
+                        <span className=' text-3xl lg:text-4xl'><FaRegUserCircle /></span>
                         <div className='flex flex-col justify-center items-start'>
-                            <span>{userInfo?.name}</span>
+                            <span className='font-medium'>{userInfo?.name}</span>
                             <span>{userInfo?.phone}</span>
                             <button onClick={handleLogOut} className='underline text-white'>Log Out</button>
                         </div>
@@ -83,19 +83,19 @@ const Home = () => {
                 <div className='my-9 max-w-3xl mx-auto'>
                     <h1 className='text-2xl text-[#006769] text-center font-bold my-6'>Services</h1>
                     <div className='flex flex-col lg:flex-row justify-center items-center gap-6'>
-                        <Link className='border p-6 flex flex-col justify-center items-center gap-2 w-48 h-52'>
+                        <Link className='border p-6 flex flex-col justify-center items-center gap-2 w-48 h-52 duration-200 hover:scale-105 hover:border-[#006769]'>
                             <span className='text-6xl text-[#006769]'><BsCashCoin /></span>
                             <p className='text-[#006769]'>Cash In</p>
                         </Link>
-                        <div className='border p-6 flex flex-col justify-center items-center gap-2 w-48 h-52'>
+                        <div className='border p-6 flex flex-col justify-center items-center gap-2 w-48 h-52 duration-200 hover:scale-105 hover:border-[#006769]'>
                             <span className='text-6xl text-[#006769]'><IoLogOut /></span>
                             <p className='text-[#006769]'>Cash Out</p>
                         </div>
-                        <Link to={'/user/send-money'} className='border p-6 flex flex-col justify-center items-center gap-2 w-48 h-52'>
+                        <Link to={'/user/send-money'} className='border p-6 flex flex-col justify-center items-center gap-2 w-48 h-52 duration-200 hover:scale-105 hover:border-[#006769]'>
                             <span className='text-6xl text-[#006769]'><IoIosSend /></span>
                             <p className='text-[#006769]'>Send Money</p>
                         </Link>
-                        <Link to={'/user/transactions'} className='border p-6 flex flex-col justify-center items-center gap-2 w-48 h-52'>
+                        <Link to={'/user/transactions'} className='border p-6 flex flex-col justify-center items-center gap-2 w-48 h-52 duration-200 hover:scale-105 hover:border-[#006769]'>
                             <span className='text-6xl text-[#006769]'><FaMoneyCheckDollar /></span>
                             <p className='text-[#006769]'>Transactions</p>
                         </Link>

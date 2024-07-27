@@ -22,6 +22,9 @@ const SignUp = () => {
 
         const res = await axiosSecure.post(`/reg-user`, data)
         console.log(res.data);
+        if (res?.data?.insertedId) {
+            setRegSuccess(true);
+        }
         if (res.data?.message) {
             setRegError(res.data?.message);
             setLoading(false);
@@ -82,6 +85,15 @@ const SignUp = () => {
                 </div>
 
             </form>
+            {
+                regSuccess &&
+                <div className='absolute inset-0 bg-black bg-opacity-80 flex justify-center items-center'>
+                    <div className='bg-white p-4 w-full lg:w-1/4 mx-4 lg:mx-0 text-center relative rounded-xl'>
+                        <button className='absolute top-2 right-4 text-2xl' onClick={() => setRegSuccess(false)}>X</button>
+                        <p className='my-16 text-xl text-[#006769]'>Success!</p>
+                    </div>
+                </div>
+            }
         </div>
     );
 };
