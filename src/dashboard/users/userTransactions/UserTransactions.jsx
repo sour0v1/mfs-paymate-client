@@ -1,23 +1,14 @@
 import React from 'react';
 import useAxiosSecure from '../../../hook/useAxiosSecure';
 import { useQuery } from '@tanstack/react-query';
-import { Link } from 'react-router-dom';
+import { Link, NavLink, Outlet } from 'react-router-dom';
 import { FaHome } from 'react-icons/fa';
 import { IoIosSend } from 'react-icons/io';
 import { FaMoneyCheckDollar } from 'react-icons/fa6';
+import './UserTransaction.css'
 
 const UserTransactions = () => {
-    const axiosSecure = useAxiosSecure();
-    const userIdentity = localStorage.getItem('userIdentity');
-    const { data: transactions } = useQuery({
-        queryKey: ['transactions'],
-        queryFn: async () => {
-            const res = await axiosSecure.get(`/user/transaction?userIdentity=${userIdentity}`)
-            return res?.data;
-        },
-        enabled: !!userIdentity
-    })
-    console.log(transactions);
+
     return (
         <div className='bg-[#006769] text-white pt-16 pb-6 min-h-screen relative'>
             <div className='absolute top-4 left-4 flex justify-center items-center gap-4'>
@@ -27,36 +18,15 @@ const UserTransactions = () => {
                     <span className='text-white'>Transactions History</span>
                 </div>
             </div>
-            <div className='max-w-6xl mx-auto'>
-                <div className="overflow-x-auto">
-                    <table className="table">
-                        {/* head */}
-                        <thead>
-                            <tr className='text-white'>
-                                <th></th>
-                                <th>From</th>
-                                <th>Amount</th>
-                                <th>To</th>
-                                <th>Type</th>
-                                <th>Date</th>
-                            </tr>
-                        </thead>
-                        {
-                            transactions?.map((transaction, idx) => <tbody key={idx}>
-                                {/* row 1 */}
-                                <tr>
-                                    <th>{idx + 1}</th>
-                                    <td>{transaction?.from}</td>
-                                    <td>{transaction?.balance}</td>
-                                    <td>{transaction?.to}</td>
-                                    <td>{transaction?.type}</td>
-                                    <td>{transaction?.date}</td>
-                                </tr>
-                            </tbody>)
-                        }
-                    </table>
+            <div className='max-w-6xl mx-auto flex justify-center items-start gap-6'>
+                <div id='transaction' className='px-6 border min-h-screen flex flex-col items-start gap-3 py-3 w-fit'>
+                    <NavLink to={'history/send-money'}>Send Money</NavLink>
+                    <NavLink to={'history/recieve-money'}>Recieve Money</NavLink>
                 </div>
-                
+                <div className='w-3/4'>
+                    <Outlet></Outlet>
+                </div>
+
             </div>
         </div>
     );

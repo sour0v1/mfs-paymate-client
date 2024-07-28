@@ -49,7 +49,7 @@ const AllUsers = () => {
                                 <td>{user?.name}</td>
                                 <td>{user?.phone}</td>
                                 <td>{user?.email}</td>
-                                <td><button onClick={() => handleVerifyUser(user?._id)} className={`${user?.verified ? 'text-[#006769]' : 'text-black border-b border-black'}`}>{user?.verified ? 'Verified' : loading ? 'loading..' : 'Verify'}</button></td>
+                                <td><button onClick={() => handleVerifyUser(user?._id)} className={`${user?.verified ? 'text-[#006769]' : 'text-black border-b border-black'}`}>{user?.verified ? 'Verified' : 'Verify'}</button></td>
                             </tr>)
                         }
                     </tbody>

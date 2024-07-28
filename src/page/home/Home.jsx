@@ -15,6 +15,7 @@ const Home = () => {
     const [balance, setBalance] = useState(null);
     const [loading, setLoading] = useState(false);
     const axiosSecure = useAxiosSecure();
+    const [tap, setTap] = useState(true);
     const navigate = useNavigate();
     console.log(userInfo);
 
@@ -36,11 +37,14 @@ const Home = () => {
     }, [])
 
     const handleCheckBalance = async () => {
+        setTap(false);
+        setBalance(null)
         setLoading(true);
         const balance = await axiosSecure.get(`/check-balance?email=${userInfo?.email}`);
         const netBalance = balance?.data.balance
+        console.log(netBalance);
         setBalance(netBalance);
-        if (netBalance) {
+        if (netBalance >=0) {
             setLoading(false);
         }
         console.log('hello')
@@ -49,8 +53,8 @@ const Home = () => {
 
     useEffect(() => {
         const timer = setTimeout(() => {
+            setTap(true);
             setBalance(null);
-            console.log('hello');
         }, 2000)
 
         return () => clearTimeout(timer)
@@ -69,7 +73,7 @@ const Home = () => {
             <div>
                 <div className='bg-[#006769] py-6 px-9 flex flex-col lg:flex-row justify-between items-center gap-4'>
                     <img className='w-36 lg:w-48' src={logo} alt="" />
-                    <BalanceBtn handleCheckBalance={handleCheckBalance} loading={loading} balance={balance}></BalanceBtn>
+                    <BalanceBtn handleCheckBalance={handleCheckBalance} loading={loading} balance={balance} tap={tap}></BalanceBtn>
                     <div className='text-white flex justify-center items-center gap-3'>
                         <span className=' text-3xl lg:text-4xl'><FaRegUserCircle /></span>
                         <div className='flex flex-col justify-center items-start'>
@@ -95,7 +99,7 @@ const Home = () => {
                             <span className='text-6xl text-[#006769]'><IoIosSend /></span>
                             <p className='text-[#006769]'>Send Money</p>
                         </Link>
-                        <Link to={'/user/transactions'} className='border p-6 flex flex-col justify-center items-center gap-2 w-48 h-52 duration-200 hover:scale-105 hover:border-[#006769]'>
+                        <Link to={'/user/transactions/history/send-money'} className='border p-6 flex flex-col justify-center items-center gap-2 w-48 h-52 duration-200 hover:scale-105 hover:border-[#006769]'>
                             <span className='text-6xl text-[#006769]'><FaMoneyCheckDollar /></span>
                             <p className='text-[#006769]'>Transactions</p>
                         </Link>

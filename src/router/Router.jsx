@@ -9,6 +9,8 @@ import SendMoney from "../dashboard/users/sendMoney/SendMoney";
 import ConfirmSendMoney from "../dashboard/users/ConfirmSendMoney";
 import CheckNumber from "../dashboard/users/CheckNumber";
 import UserTransactions from "../dashboard/users/userTransactions/UserTransactions";
+import SendHistory from "../dashboard/users/userTransactions/SendHistory";
+import RecieveHistory from "../dashboard/users/userTransactions/RecieveHistory";
 // import PrivateRoute from "../routes/PrivateRoute";
 
 const router = createBrowserRouter([
@@ -54,7 +56,17 @@ const router = createBrowserRouter([
             },
             {
                 path : '/user/transactions',
-                element : <UserTransactions></UserTransactions>
+                element : <UserTransactions></UserTransactions>,
+                children : [
+                    {
+                        path : 'history/send-money',
+                        element : <SendHistory></SendHistory>
+                    },
+                    {
+                        path : 'history/recieve-money',
+                        element : <RecieveHistory></RecieveHistory>
+                    }
+                ]
             }
         ]
     }
