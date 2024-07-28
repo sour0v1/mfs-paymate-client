@@ -31,6 +31,9 @@ const Login = () => {
             setLoading(false);
             setLogError(null);
             localStorage.setItem('userIdentity', `${userIdentity}`);
+            if(res.data?.role == 'admin'){
+              return navigate('/home/admin');
+            }
             navigate('/home');
 
         }

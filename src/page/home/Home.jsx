@@ -6,9 +6,10 @@ import { FaMoneyCheckDollar } from 'react-icons/fa6';
 import { IoLogOut } from 'react-icons/io5';
 import { IoIosSend } from 'react-icons/io';
 import { BsCashCoin } from 'react-icons/bs';
-import { Link, Navigate, Outlet, useNavigate } from 'react-router-dom';
+import { Link, Navigate, NavLink, Outlet, useNavigate } from 'react-router-dom';
 import useAxiosSecure from '../../hook/useAxiosSecure';
 import BalanceBtn from '../../components/BalanceBtn';
+import './Home.css'
 
 const Home = () => {
     const { setUserIdentity, userInfo, isPending } = useContext(AuthContext);
@@ -112,13 +113,13 @@ const Home = () => {
     if (userInfo?.role === 'agent') {
         return (
             <div>
-                <div className='bg-[#006769] py-6 px-9 flex justify-between items-center'>
-                    <img className='w-48' src={logo} alt="" />
-                    <BalanceBtn handleCheckBalance={handleCheckBalance} loading={loading} balance={balance}></BalanceBtn>
+                <div className='bg-[#006769] py-6 px-9 flex flex-col lg:flex-row justify-between items-center gap-4'>
+                    <img className='w-36 lg:w-48' src={logo} alt="" />
+                    <BalanceBtn handleCheckBalance={handleCheckBalance} loading={loading} balance={balance} tap={tap}></BalanceBtn>
                     <div className='text-white flex justify-center items-center gap-3'>
-                        <span className='text-4xl'><FaRegUserCircle /></span>
+                        <span className=' text-3xl lg:text-4xl'><FaRegUserCircle /></span>
                         <div className='flex flex-col justify-center items-start'>
-                            <span>{userInfo?.name}</span>
+                            <span className='font-medium'>{userInfo?.name}</span>
                             <span>{userInfo?.phone}</span>
                             <button onClick={handleLogOut} className='underline text-white'>Log Out</button>
                         </div>
@@ -149,11 +150,11 @@ const Home = () => {
     if (userInfo?.role === 'admin') {
         return (
             <div>
-                <div className='bg-[#006769] py-6 px-9 flex justify-between items-center'>
-                    <img className='w-48' src={logo} alt="" />
-                    <BalanceBtn handleCheckBalance={handleCheckBalance} loading={loading} balance={balance}></BalanceBtn>
+                <div className='bg-[#006769] py-6 px-9 flex  flex-col lg:flex-row justify-between items-center gap-4'>
+                    <img className='w-32 lg:w-48' src={logo} alt="" />
+                    <h1 className=' text-xl lg:text-2xl text-white text-center font-bold'>Dashboard</h1>
                     <div className='text-white flex justify-center items-center gap-3'>
-                        <span className='text-4xl'><FaRegUserCircle /></span>
+                        <span className='text-2xl lg:text-4xl'><FaRegUserCircle /></span>
                         <div className='flex flex-col justify-center items-start'>
                             <span>{userInfo?.name}</span>
                             <span>{userInfo?.phone}</span>
@@ -161,13 +162,13 @@ const Home = () => {
                         </div>
                     </div>
                 </div>
-                <h1 className='text-2xl text-[#006769] text-center font-bold my-6'>Dashboard</h1>
-                <div className='max-w-5xl mx-auto border flex justify-center items-center gap-9 p-6'>
-                    <div className='w-1/3 border flex flex-col justify-center items-start gap-2 text-[#006769] underline p-4'>
-                        <Link to={'/home/all-users'}>All Users</Link>
-                        <Link to={'/home/all-agents'}>All Agents</Link>
+
+                <div className='max-w-6xl mx-auto flex flex-col lg:flex-row justify-center items-start gap-4 lg:gap-9 my-3 px-4 lg:px-0'>
+                    <div id='dashboard' className='px-6 h-full lg:min-h-screen flex flex-col items-start gap-3 py-3 w-full lg:w-fit border lg:my-9'>
+                        <NavLink to={'/home/admin'}>All Users</NavLink>
+                        <NavLink to={'/home/all-agents'}>All Agents</NavLink>
                     </div>
-                    <div className='w-2/3 border'>
+                    <div className='w-full lg:w-3/4 lg:my-9'>
                         <Outlet></Outlet>
                     </div>
 

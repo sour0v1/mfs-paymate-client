@@ -1,10 +1,10 @@
-import { useQuery } from '@tanstack/react-query';
-import React from 'react';
-import useAxiosSecure from '../../hook/useAxiosSecure';
+import { useQuery } from "@tanstack/react-query";
+import useAxiosSecure from "../../hook/useAxiosSecure";
+
 
 const AllAgents = () => {
   const axiosSecure = useAxiosSecure();
-  const { data: agents, refetch, isPending } = useQuery({
+  const { data: agents, refetch, isPending, isFetching } = useQuery({
     queryKey: ['agents'],
     queryFn: async () => {
       const res = await axiosSecure.get('/all-agents');
@@ -17,11 +17,12 @@ const AllAgents = () => {
   const handleVerifyAgent = async (id) => {
     const res = await axiosSecure.post(`/verify-agent?id=${id}`)
     console.log(res.data);
-    if (res.data?.verified) {
+    if (res.data?.modifiedCount) {
       refetch();
+      console.log('hmmmmmm');
     }
   }
-  if (isPending) {
+  if (isPending || isFetching) {
     return <div className='w-full h-full flex justify-center items-center text-[#006769]'>loading...</div>
   }
   return (

@@ -3,14 +3,14 @@ import Login from "../page/login/Login";
 import SignUp from "../page/signUp/SignUp";
 import App from "../App";
 import Home from "../page/home/Home";
-import AllUsers from "../dashboard/users/AllUsers";
-import AllAgents from "../dashboard/agents/AllAgents";
 import SendMoney from "../dashboard/users/sendMoney/SendMoney";
 import ConfirmSendMoney from "../dashboard/users/ConfirmSendMoney";
 import CheckNumber from "../dashboard/users/CheckNumber";
 import UserTransactions from "../dashboard/users/userTransactions/UserTransactions";
 import SendHistory from "../dashboard/users/userTransactions/SendHistory";
 import RecieveHistory from "../dashboard/users/userTransactions/RecieveHistory";
+import AllAgents from "../dashboard/admin/AllAgents";
+import AllUsers from "../dashboard/admin/AllUsers";
 // import PrivateRoute from "../routes/PrivateRoute";
 
 const router = createBrowserRouter([
@@ -31,7 +31,7 @@ const router = createBrowserRouter([
                 element : <Home></Home>,
                 children : [
                     {
-                        path : 'all-users',
+                        path : '/home/admin',
                         element : <AllUsers></AllUsers>
                     },
                     {

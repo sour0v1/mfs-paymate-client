@@ -1,11 +1,12 @@
-import { useQuery } from '@tanstack/react-query';
-import React, { useState } from 'react';
-import useAxiosSecure from '../../hook/useAxiosSecure';
+import { useState } from "react";
+import useAxiosSecure from "../../hook/useAxiosSecure";
+import { useQuery } from "@tanstack/react-query";
+
 
 const AllUsers = () => {
     const axiosSecure = useAxiosSecure();
     const [loading, setLoading] = useState(false);
-    const { data: users, refetch, isPending } = useQuery({
+    const { data: users, refetch, isPending, isFetching } = useQuery({
         queryKey: ['users'],
         queryFn: async () => {
             const res = await axiosSecure.get('/all-users');
@@ -19,13 +20,13 @@ const AllUsers = () => {
         setLoading(true);
         const res = await axiosSecure.post(`/verify-user?id=${id}`)
         console.log(res?.data);
-        if (res.data?.verified) {
+        if (res.data?.modifiedCount) {
             refetch();
             setLoading(false);
         }
         // refetch();
     }
-    if (isPending) {
+    if (isPending || isFetching) {
         return <div className='w-full h-full flex justify-center items-center text-[#006769]'>loading...</div>
     }
     return (
