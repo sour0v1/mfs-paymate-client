@@ -22,6 +22,7 @@ const CheckNumber = ({ role }) => {
             if (role === 'user') {
                return navigate(`/user/send-money/confirm`, { state: { number: phone } });
             }
+            return navigate(`/user/cash-in/confirm`, {state : {number : phone }});
         }
         if (checkPhone?.data.message) {
             setMessage(checkPhone?.data.message);

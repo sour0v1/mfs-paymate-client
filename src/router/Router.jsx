@@ -15,6 +15,7 @@ import ConfirmSendMoney from "../dashboard/users/sendMoney/ConfirmSendMoney";
 import CashIn from "../dashboard/users/cashIn/CashIn";
 import CheckUser from "../dashboard/users/sendMoney/CheckUser";
 import CheckAgent from "../dashboard/users/cashIn/CheckAgent";
+import ConfirmCashIn from "../dashboard/users/cashIn/ConfirmCashIn";
 // import PrivateRoute from "../routes/PrivateRoute";
 
 const router = createBrowserRouter([
@@ -81,7 +82,8 @@ const router = createBrowserRouter([
                         element : <CheckAgent></CheckAgent>
                     },
                     {
-                        path : 'confirm'
+                        path : 'confirm',
+                        element : <ConfirmCashIn></ConfirmCashIn>
                     }
                 ]
             }
