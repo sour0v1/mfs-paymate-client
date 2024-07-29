@@ -1,7 +1,7 @@
 import React, { useContext, useState } from 'react';
 import { useLocation } from 'react-router-dom';
-import useAxiosSecure from '../../hook/useAxiosSecure';
-import { AuthContext } from '../../provider/Provider';
+import useAxiosSecure from '../../../hook/useAxiosSecure';
+import { AuthContext } from '../../../provider/Provider';
 import { RxCross1 } from 'react-icons/rx';
 
 const ConfirmSendMoney = () => {

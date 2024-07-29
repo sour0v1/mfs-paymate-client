@@ -4,13 +4,17 @@ import SignUp from "../page/signUp/SignUp";
 import App from "../App";
 import Home from "../page/home/Home";
 import SendMoney from "../dashboard/users/sendMoney/SendMoney";
-import ConfirmSendMoney from "../dashboard/users/ConfirmSendMoney";
-import CheckNumber from "../dashboard/users/CheckNumber";
+// import ConfirmSendMoney from "../dashboard/users/ConfirmSendMoney";
+// import CheckNumber from "../dashboard/users/CheckNumber";
 import UserTransactions from "../dashboard/users/userTransactions/UserTransactions";
 import SendHistory from "../dashboard/users/userTransactions/SendHistory";
 import RecieveHistory from "../dashboard/users/userTransactions/RecieveHistory";
 import AllAgents from "../dashboard/admin/AllAgents";
 import AllUsers from "../dashboard/admin/AllUsers";
+import ConfirmSendMoney from "../dashboard/users/sendMoney/ConfirmSendMoney";
+import CashIn from "../dashboard/users/cashIn/CashIn";
+import CheckUser from "../dashboard/users/sendMoney/CheckUser";
+import CheckAgent from "../dashboard/users/cashIn/CheckAgent";
 // import PrivateRoute from "../routes/PrivateRoute";
 
 const router = createBrowserRouter([
@@ -46,7 +50,7 @@ const router = createBrowserRouter([
                 children : [
                     {
                         path : '/user/send-money',
-                        element : <CheckNumber></CheckNumber>
+                        element : <CheckUser></CheckUser>
                     },
                     {
                         path : 'confirm',
@@ -65,6 +69,19 @@ const router = createBrowserRouter([
                     {
                         path : 'history/recieve-money',
                         element : <RecieveHistory></RecieveHistory>
+                    }
+                ]
+            },
+            {
+                path : '/user/cash-in',
+                element : <CashIn></CashIn>,
+                children : [
+                    {
+                        path : '/user/cash-in',
+                        element : <CheckAgent></CheckAgent>
+                    },
+                    {
+                        path : 'confirm'
                     }
                 ]
             }

@@ -88,7 +88,7 @@ const Home = () => {
                 <div className='my-9 max-w-3xl mx-auto'>
                     <h1 className='text-2xl text-[#006769] text-center font-bold my-6'>Services</h1>
                     <div className='flex flex-col lg:flex-row justify-center items-center gap-6'>
-                        <Link className='border p-6 flex flex-col justify-center items-center gap-2 w-48 h-52 duration-200 hover:scale-105 hover:border-[#006769]'>
+                        <Link to={'/user/cash-in'} className='border p-6 flex flex-col justify-center items-center gap-2 w-48 h-52 duration-200 hover:scale-105 hover:border-[#006769]'>
                             <span className='text-6xl text-[#006769]'><BsCashCoin /></span>
                             <p className='text-[#006769]'>Cash In</p>
                         </Link>
