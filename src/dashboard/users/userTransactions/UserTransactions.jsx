@@ -22,6 +22,7 @@ const UserTransactions = () => {
                 <div id='transaction' className='px-6 border h-full lg:min-h-screen flex flex-col items-start gap-3 py-3 w-full lg:w-fit'>
                     <NavLink to={'history/send-money'}>Send Money</NavLink>
                     <NavLink to={'history/recieve-money'}>Recieve Money</NavLink>
+                    <NavLink to={'history/cash-in'}>Cash In Request</NavLink>
                 </div>
                 <div className='w-full lg:w-3/4'>
                     <Outlet></Outlet>

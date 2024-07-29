@@ -33,6 +33,9 @@ const ConfirmSendMoney = () => {
         console.log(confirmation?.data);
         if (confirmation?.data.insertedId) {
             setModified(true);
+            e.target.reset();
+            setPhoneValue(null);
+            setPassValue(null);
         }
         setMessage(confirmation?.data.message);
         setLoading(false);
@@ -51,7 +54,7 @@ const ConfirmSendMoney = () => {
         console.log(pass);
         setPassValue(pass);
     }
-    const changed = phoneValue?.length > 0 && passValue?.length > 0;
+    const changed = phoneValue && passValue;
     return (
         <div className='w-full text-center flex flex-col justify-center items-center gap-4'>
             <p className='text-white mx-auto'>Send money to <span className='py-1 underline'>{phoneNumber}</span></p>
@@ -59,7 +62,7 @@ const ConfirmSendMoney = () => {
             <form onSubmit={handleConfirm} className='w-full lg:w-1/4 mx-auto space-y-3'>
                 <input onChange={handlePhoneChange} className='w-full py-3 px-4 outline-none bg-white' name='balance' type='number' placeholder='Enter amount' />
                 <input onChange={handlePassChange} className='w-full py-3 px-4 outline-none bg-white' name='password' type='text' placeholder='Enter password' />
-                <button className={`w-full py-3 px-4 outline-none bg-white text-[#006769]  flex justify-center items-center ${changed ? 'opacity-100' : 'opacity-70'}`} type="submit" value={'Confirm'} disabled={changed ? false : true}>
+                <button className={`w-full py-3 px-4 outline-none bg-white text-[#006769] font-medium rounded-xl  flex justify-center items-center ${changed ? '' : 'bg-gray-400 text-white'}`} type="submit" value={'Confirm'} disabled={changed ? false : true}>
                     Send
                 </button>
             </form>

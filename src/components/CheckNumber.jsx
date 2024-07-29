@@ -13,7 +13,7 @@ const CheckNumber = ({ role }) => {
         setMessage(null);
         const form = e.target;
         const phone = form.phone.value;
-        console.log(phone)
+        // console.log(phone)
 
         const checkPhone = await axiosSecure.get(`/${role}/check-number?phone=${phone}`)
         console.log(checkPhone?.data.message);
@@ -48,7 +48,7 @@ const CheckNumber = ({ role }) => {
             <span className='text-white'>{message}</span>
             <div className='w-full flex flex-row justify-center items-center gap-1'>
                 <input className='w-full py-3 px-4 outline-none' name='phone' type="number" placeholder={role === 'user' ? `Enter user's phone number` : `Enter agent's phone number`} />
-                <button className={`bg-white  ${checkNumber ? 'text-gray-600 bg-gray-300' : 'text-[#006769]'} text-2xl py-3 px-3`} disabled={checkNumber ? true : false}>
+                <button className={` ${checkNumber ? 'bg-gray-400' : 'text-[#006769] bg-white'} text-2xl py-3 px-3`} disabled={checkNumber ? true : false}>
                     <IoIosArrowRoundForward />
                 </button>
             </div>

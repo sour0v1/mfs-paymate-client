@@ -16,6 +16,7 @@ import CashIn from "../dashboard/users/cashIn/CashIn";
 import CheckUser from "../dashboard/users/sendMoney/CheckUser";
 import CheckAgent from "../dashboard/users/cashIn/CheckAgent";
 import ConfirmCashIn from "../dashboard/users/cashIn/ConfirmCashIn";
+import CashInHistory from "../dashboard/users/userTransactions/CashInHistory";
 // import PrivateRoute from "../routes/PrivateRoute";
 
 const router = createBrowserRouter([
@@ -70,6 +71,10 @@ const router = createBrowserRouter([
                     {
                         path : 'history/recieve-money',
                         element : <RecieveHistory></RecieveHistory>
+                    },
+                    {
+                        path : 'history/cash-in',
+                        element : <CashInHistory></CashInHistory>
                     }
                 ]
             },
