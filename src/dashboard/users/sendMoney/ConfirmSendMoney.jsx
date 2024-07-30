@@ -62,7 +62,7 @@ const ConfirmSendMoney = () => {
             <form onSubmit={handleConfirm} className='w-full lg:w-1/4 mx-auto space-y-3'>
                 <input onChange={handlePhoneChange} className='w-full py-3 px-4 outline-none bg-white' name='balance' type='number' placeholder='Enter amount' />
                 <input onChange={handlePassChange} className='w-full py-3 px-4 outline-none bg-white' name='password' type='text' placeholder='Enter password' />
-                <button className={`w-full py-3 px-4 outline-none bg-white text-[#0B1906] font-medium rounded-xl  flex justify-center items-center ${changed ? '' : 'bg-gray-400 text-white'}`} type="submit" value={'Confirm'} disabled={changed ? false : true}>
+                <button className={`w-full py-3 px-4 outline-none  text-[#0B1906] font-medium rounded-xl  flex justify-center items-center ${changed ? 'bg-white' : 'bg-gray-300 '}`} type="submit" value={'Confirm'} disabled={changed ? false : true}>
                     Send
                 </button>
             </form>
@@ -79,11 +79,7 @@ const ConfirmSendMoney = () => {
                     <span className="loading loading-spinner loading-lg text-white"></span> :
                 </div>
             }
-            {loading &&
-                <div className='absolute inset-0 bg-black bg-opacity-50 flex justify-center items-center'>
-                    <span className="loading loading-spinner loading-lg text-white"></span> :
-                </div>
-            }
+            
         </div>
     );
 };
