@@ -62,7 +62,7 @@ const ConfirmSendMoney = () => {
             <form onSubmit={handleConfirm} className='w-full lg:w-1/4 mx-auto space-y-3'>
                 <input onChange={handlePhoneChange} className='w-full py-3 px-4 outline-none bg-white' name='balance' type='number' placeholder='Enter amount' />
                 <input onChange={handlePassChange} className='w-full py-3 px-4 outline-none bg-white' name='password' type='text' placeholder='Enter password' />
-                <button className={`w-full py-3 px-4 outline-none bg-white text-[#006769] font-medium rounded-xl  flex justify-center items-center ${changed ? '' : 'bg-gray-400 text-white'}`} type="submit" value={'Confirm'} disabled={changed ? false : true}>
+                <button className={`w-full py-3 px-4 outline-none bg-white text-[#0B1906] font-medium rounded-xl  flex justify-center items-center ${changed ? '' : 'bg-gray-400 text-white'}`} type="submit" value={'Confirm'} disabled={changed ? false : true}>
                     Send
                 </button>
             </form>
@@ -70,7 +70,7 @@ const ConfirmSendMoney = () => {
                 <div className='absolute inset-0 bg-black bg-opacity-80 flex justify-center items-center'>
                     <div className='bg-white p-4 w-full lg:w-1/3 mx-4 lg:mx-0 relative rounded-xl'>
                         <button className='absolute top-3 right-4 text-xl p-2 rounded-full hover:bg-gray-100' onClick={() => setModified(false)}><RxCross1 /></button>
-                        <p className='my-16 text-xl text-[#006769]'>Success!</p>
+                        <p className='my-16 text-xl text-[#0B1906]'>Success!</p>
                     </div>
                 </div>
             }

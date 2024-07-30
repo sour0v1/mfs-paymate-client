@@ -37,9 +37,9 @@ const SignUp = () => {
     };
 
     return (
-        <div className='bg-[#006769] min-h-screen w-full flex justify-center items-center px-4 py-6 lg:px-0'>
+        <div className='bg-[#0B1906] min-h-screen w-full flex justify-center items-center px-4 py-6 lg:px-0'>
 
-            <form onSubmit={handleSubmit(onSubmit)} className='w-full lg:w-1/3 flex flex-col justify-center items-center gap-4 text-[#006769]'>
+            <form onSubmit={handleSubmit(onSubmit)} className='w-full lg:w-1/3 flex flex-col justify-center items-center gap-4 text-[#0B1906]'>
                 <img className='mb-9' src={logo} alt="" />
                 <p className='text-white'>{regError}</p>
                 <div className='w-full'>
@@ -63,22 +63,22 @@ const SignUp = () => {
                 </div>
                 <div className='text-white flex justify-center items-center gap-9'>
                     <label className='inline-flex items-center gap-2'>
-                        <input {...register('role')} required className='accent-[#006769] w-4 h-4' type="radio" value={'user'} />
+                        <input {...register('role')} required className='accent-[#0B1906] w-4 h-4' type="radio" value={'user'} />
                         <span>User</span>
                     </label>
 
                     <label className='inline-flex items-center gap-2'>
-                        <input {...register('role')} required className='accent-[#006769] w-4 h-4' type="radio" value={'agent'} />
+                        <input {...register('role')} required className='accent-[#0B1906] w-4 h-4' type="radio" value={'agent'} />
                         <span>Agent</span>
                     </label>
 
                 </div>
                 {
                     loading ?
-                        <button className='py-3 w-1/3 bg-white text-[#006769]  flex justify-center items-center'>
+                        <button className='py-3 w-1/3 bg-white text-[#0B1906]  flex justify-center items-center'>
                             <span className="loading loading-spinner loading-sm"></span>
                         </button> :
-                        <input className='py-3 w-1/3 border border-white text-white hover:bg-white hover:text-[#006769]' type="submit" value='Sign Up' />
+                        <input className='py-3 w-1/3 border border-white text-white hover:bg-white hover:text-[#0B1906]' type="submit" value='Sign Up' />
                 }
                 <div className='mt-4'>
                     <Link to={'/'} className='text-white border-b hover:border-b-2'>Log In</Link>
@@ -90,7 +90,7 @@ const SignUp = () => {
                 <div className='absolute inset-0 bg-black bg-opacity-80 flex justify-center items-center'>
                     <div className='bg-white p-4 w-full lg:w-1/4 mx-4 lg:mx-0 text-center relative rounded-xl'>
                         <button className='absolute top-2 right-4 text-2xl' onClick={() => setRegSuccess(false)}>X</button>
-                        <p className='my-16 text-xl text-[#006769]'>Success!</p>
+                        <p className='my-16 text-xl text-[#0B1906]'>Success!</p>
                     </div>
                 </div>
             }

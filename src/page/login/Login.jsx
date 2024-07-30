@@ -40,28 +40,28 @@ const Login = () => {
 
     };
     return (
-        <div className='bg-[#006769] min-h-screen w-full flex justify-center items-center px-4 py-6 lg:px-0'>
+        <div className='bg-[#0B1906] min-h-screen w-full flex justify-center items-center px-4 py-6 lg:px-0'>
 
-            <form onSubmit={handleSubmit(onSubmit)} className='w-full lg:w-1/3 flex flex-col justify-center items-center gap-4 text-[#006769]'>
-                <img className='mb-9' src={logo} alt="" />
+            <form onSubmit={handleSubmit(onSubmit)} className='w-full lg:w-1/3 flex flex-col justify-center items-center gap-4 text-[#0B1906]'>
+                <img className='mb-9 absolute top-6 left-6 border-l-4 pl-2 py-3 w-48' src={logo} alt="" />
                 <p className='text-white'>{logError}</p>
                 <div className='w-full'>
-                    <input {...register('userIdentity', { required: true })} className='py-3 px-4 w-full outline-none focus:outline-gray-100' type="text" placeholder='Phone or Email' />
+                    <input {...register('userIdentity', { required: true })} className='py-3 px-4 w-full outline-none focus:outline-gray-100 rounded-sm' type="text" placeholder='Phone or Email' />
                     {errors.userIdentity && <span className='text-white text-start inline-block w-full'>Phone or Email is required</span>}
                 </div>
                 <div className='w-full relative'>
-                    <input {...register('password', { required: true })} className='py-3 px-4 w-full outline-none focus:outline-gray-100' type={!open ? 'password' : 'text'} placeholder='Password' />
+                    <input {...register('password', { required: true })} className='py-3 px-4 w-full outline-none focus:outline-gray-100 rounded-sm' type={!open ? 'password' : 'text'} placeholder='Password' />
                     <span onClick={() => setOpen(!open)} className='absolute pt-4 right-0 px-2'>{!open ? <FaRegEyeSlash /> : <IoEyeOutline />}</span>
                     {errors.password && <span className='text-white text-start inline-block w-full'>Password is required</span>}
                 </div>
                 {
                     loading ?
-                        <button className='py-3 w-1/3 bg-white text-[#006769]  flex justify-center items-center'>
+                        <button className='py-3 w-1/3 bg-white text-[#0B1906]  flex justify-center items-center'>
                             <span className="loading loading-spinner loading-sm"></span>
                         </button> :
-                        <input className='py-3 w-1/3 border border-white text-white hover:bg-white hover:text-[#006769]' type="submit" value='Sign In' />
+                        <input className='py-3 w-1/3 border border-white rounded-full text-white hover:bg-white hover:text-[#0B1906]' type="submit" value='Sign In' />
                 }
-                {/* <input className='py-3 w-1/3 border border-white text-white hover:bg-white hover:text-[#006769]' type="submit" value='Log In' /> */}
+                {/* <input className='py-3 w-1/3 border border-white text-white hover:bg-white hover:text-[#0B1906]' type="submit" value='Log In' /> */}
                 <div className='mt-4'>
                     <Link to={'/sign-up'} className='text-white border-b hover:border-b-2'>Create Account</Link>
                 </div>

@@ -38,14 +38,13 @@ const Home = () => {
     }, [])
 
     const handleCheckBalance = async () => {
-        setTap(false);
         setBalance(null)
         setLoading(true);
         const balance = await axiosSecure.get(`/check-balance?email=${userInfo?.email}`);
         const netBalance = balance?.data.balance
         console.log(netBalance);
         setBalance(netBalance);
-        if (netBalance >=0) {
+        if (netBalance >= 0) {
             setLoading(false);
         }
         console.log('hello')
@@ -54,25 +53,25 @@ const Home = () => {
 
     useEffect(() => {
         const timer = setTimeout(() => {
-            setTap(true);
             setBalance(null);
+
         }, 2000)
 
         return () => clearTimeout(timer)
     }, [balance])
 
     if (isPending) {
-        return <div className='w-screen h-screen flex justify-center items-center text-[#006769]'>loading...</div>
+        return <div className='w-screen min-h-screen flex justify-center items-center bg-[#0B1906] text-white'>loading...</div>
     }
     // if (!userInfo) {
-    //     return <div className='w-screen h-screen flex justify-center items-center text-[#006769]'>loading...</div>
+    //     return <div className='w-screen h-screen flex justify-center items-center text-[#0B1906]'>loading...</div>
     // }
 
 
     if (userInfo?.role === 'user') {
         return (
             <div>
-                <div className='bg-[#006769] py-6 px-9 flex flex-col lg:flex-row justify-between items-center gap-4'>
+                <div className='bg-[#0B1906] py-6 px-9 flex flex-col lg:flex-row justify-between items-center gap-4'>
                     <img className='w-36 lg:w-48' src={logo} alt="" />
                     <BalanceBtn handleCheckBalance={handleCheckBalance} loading={loading} balance={balance} tap={tap}></BalanceBtn>
                     <div className='text-white flex justify-center items-center gap-3'>
@@ -80,29 +79,29 @@ const Home = () => {
                         <div className='flex flex-col justify-center items-start'>
                             <span className='font-medium'>{userInfo?.name}</span>
                             <span>{userInfo?.phone}</span>
-                            <button onClick={handleLogOut} className='underline text-white'>Log Out</button>
+                            <button onClick={handleLogOut} className='border-b hover:border-b-2 text-white'>Log Out</button>
                         </div>
                     </div>
                 </div>
                 {/* user home */}
                 <div className='my-9 max-w-3xl mx-auto'>
-                    <h1 className='text-2xl text-[#006769] text-center font-bold my-6'>Services</h1>
+                    <h1 className='text-2xl text-[#0B1906] text-center font-bold my-6'>Services</h1>
                     <div className='flex flex-col lg:flex-row justify-center items-center gap-6'>
-                        <Link to={'/user/cash-in'} className='border p-6 flex flex-col justify-center items-center gap-2 w-48 h-52 duration-200 hover:scale-105 hover:border-[#006769]'>
-                            <span className='text-6xl text-[#006769]'><BsCashCoin /></span>
-                            <p className='text-[#006769]'>Cash In</p>
+                        <Link to={'/user/cash-in'} className='border p-6 flex flex-col justify-center items-center gap-2 w-48 h-52 duration-200 hover:scale-105 hover:border-[#0B1906]'>
+                            <span className='text-6xl text-[#0B1906]'><BsCashCoin /></span>
+                            <p className='text-[#0B1906]'>Cash In</p>
                         </Link>
-                        <div className='border p-6 flex flex-col justify-center items-center gap-2 w-48 h-52 duration-200 hover:scale-105 hover:border-[#006769]'>
-                            <span className='text-6xl text-[#006769]'><IoLogOut /></span>
-                            <p className='text-[#006769]'>Cash Out</p>
+                        <div className='border p-6 flex flex-col justify-center items-center gap-2 w-48 h-52 duration-200 hover:scale-105 hover:border-[#0B1906]'>
+                            <span className='text-6xl text-[#0B1906]'><IoLogOut /></span>
+                            <p className='text-[#0B1906]'>Cash Out</p>
                         </div>
-                        <Link to={'/user/send-money'} className='border p-6 flex flex-col justify-center items-center gap-2 w-48 h-52 duration-200 hover:scale-105 hover:border-[#006769]'>
-                            <span className='text-6xl text-[#006769]'><IoIosSend /></span>
-                            <p className='text-[#006769]'>Send Money</p>
+                        <Link to={'/user/send-money'} className='border p-6 flex flex-col justify-center items-center gap-2 w-48 h-52 duration-200 hover:scale-105 hover:border-[#0B1906]'>
+                            <span className='text-6xl text-[#0B1906]'><IoIosSend /></span>
+                            <p className='text-[#0B1906]'>Send Money</p>
                         </Link>
-                        <Link to={'/user/transactions/history/send-money'} className='border p-6 flex flex-col justify-center items-center gap-2 w-48 h-52 duration-200 hover:scale-105 hover:border-[#006769]'>
-                            <span className='text-6xl text-[#006769]'><FaMoneyCheckDollar /></span>
-                            <p className='text-[#006769]'>Transactions</p>
+                        <Link to={'/user/transactions/history/send-money'} className='border p-6 flex flex-col justify-center items-center gap-2 w-48 h-52 duration-200 hover:scale-105 hover:border-[#0B1906]'>
+                            <span className='text-6xl text-[#0B1906]'><FaMoneyCheckDollar /></span>
+                            <p className='text-[#0B1906]'>Transactions</p>
                         </Link>
                     </div>
                 </div>
@@ -113,33 +112,33 @@ const Home = () => {
     if (userInfo?.role === 'agent') {
         return (
             <div>
-                <div className='bg-[#006769] py-6 px-9 flex flex-col lg:flex-row justify-between items-center gap-4'>
+                <div className='bg-[#0B1906] py-6 px-9 flex flex-col lg:flex-row justify-between items-center gap-4'>
                     <img className='w-36 lg:w-48' src={logo} alt="" />
                     <BalanceBtn handleCheckBalance={handleCheckBalance} loading={loading} balance={balance} tap={tap}></BalanceBtn>
-                    <div className='text-white flex justify-center items-center gap-3'>
-                        <span className=' text-3xl lg:text-4xl'><FaRegUserCircle /></span>
+                    <div className='text-white flex justify-center items-center gap-2'>
+                        <span className=' text-3xl lg:text-4xl border-r-2 p-2 rounded-full'><FaRegUserCircle /></span>
                         <div className='flex flex-col justify-center items-start'>
                             <span className='font-medium'>{userInfo?.name}</span>
                             <span>{userInfo?.phone}</span>
-                            <button onClick={handleLogOut} className='underline text-white'>Log Out</button>
+                            <button onClick={handleLogOut} className='border-b text-white'>Log Out</button>
                         </div>
                     </div>
                 </div>
                 {/* user home */}
                 <div className='my-9 max-w-3xl mx-auto'>
-                    <h1 className='text-2xl text-[#006769] text-center font-bold my-6'>Services</h1>
-                    <div className='flex justify-center items-center gap-6'>
-                        <div className='border p-6 flex flex-col justify-center items-center gap-2 w-48 h-52'>
-                            <span className='text-6xl text-[#006769]'><BsCashCoin /></span>
-                            <p className='text-[#006769]'>Cash In Request</p>
+                    <h1 className='text-2xl text-[#0B1906] text-center font-bold my-6'>Services</h1>
+                    <div className='flex flex-col lg:flex-row justify-center items-center gap-6 '>
+                        <Link to={'/agent/cash-in-request'} className='border p-6 flex flex-col justify-center items-center gap-2 w-48 h-52 duration-200 hover:scale-105 hover:border-[#0B1906]'>
+                            <span className='text-6xl text-[#0B1906]'><BsCashCoin /></span>
+                            <p className='text-[#0B1906]'>Cash In Request</p>
+                        </Link>
+                        <div className='border p-6 flex flex-col justify-center items-center gap-2 w-48 h-52 duration-200 hover:scale-105 hover:border-[#0B1906]'>
+                            <span className='text-6xl text-[#0B1906]'><IoLogOut /></span>
+                            <p className='text-[#0B1906]'>Cash Out Request</p>
                         </div>
-                        <div className='border p-6 flex flex-col justify-center items-center gap-2 w-48 h-52'>
-                            <span className='text-6xl text-[#006769]'><IoLogOut /></span>
-                            <p className='text-[#006769]'>Cash Out Request</p>
-                        </div>
-                        <div className='border p-6 flex flex-col justify-center items-center gap-2 w-48 h-52'>
-                            <span className='text-6xl text-[#006769]'><FaMoneyCheckDollar /></span>
-                            <p className='text-[#006769]'>Transactions</p>
+                        <div className='border p-6 flex flex-col justify-center items-center gap-2 w-48 h-52 duration-200 hover:scale-105 hover:border-[#0B1906]'>
+                            <span className='text-6xl text-[#0B1906]'><FaMoneyCheckDollar /></span>
+                            <p className='text-[#0B1906]'>Transactions</p>
                         </div>
                     </div>
                 </div>
@@ -150,7 +149,7 @@ const Home = () => {
     if (userInfo?.role === 'admin') {
         return (
             <div>
-                <div className='bg-[#006769] py-6 px-9 flex  flex-col lg:flex-row justify-between items-center gap-4'>
+                <div className='bg-[#0B1906] py-6 px-9 flex  flex-col lg:flex-row justify-between items-center gap-4'>
                     <img className='w-32 lg:w-48' src={logo} alt="" />
                     <h1 className=' text-xl lg:text-2xl text-white text-center font-bold'>Dashboard</h1>
                     <div className='text-white flex justify-center items-center gap-3'>

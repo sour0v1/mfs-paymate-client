@@ -17,6 +17,7 @@ import CheckUser from "../dashboard/users/sendMoney/CheckUser";
 import CheckAgent from "../dashboard/users/cashIn/CheckAgent";
 import ConfirmCashIn from "../dashboard/users/cashIn/ConfirmCashIn";
 import CashInHistory from "../dashboard/users/userTransactions/CashInHistory";
+import CashInRequest from "../dashboard/agents/CashInRequest";
 // import PrivateRoute from "../routes/PrivateRoute";
 
 const router = createBrowserRouter([
@@ -46,6 +47,7 @@ const router = createBrowserRouter([
                     }
                 ]
             },
+            // users
             {
                 path : '/user/send-money',
                 element : <SendMoney></SendMoney>,
@@ -91,6 +93,11 @@ const router = createBrowserRouter([
                         element : <ConfirmCashIn></ConfirmCashIn>
                     }
                 ]
+            },
+            // agent
+            {
+                path : '/agent/cash-in-request',
+                element : <CashInRequest></CashInRequest>
             }
         ]
     }

@@ -23,7 +23,7 @@ const AllAgents = () => {
     }
   }
   if (isPending || isFetching) {
-    return <div className='w-full h-full flex justify-center items-center text-[#006769]'>loading...</div>
+    return <div className='w-full h-full flex justify-center items-center text-[#0B1906]'>loading...</div>
   }
   return (
     <div>
@@ -46,7 +46,7 @@ const AllAgents = () => {
                 <td>{agent?.name}</td>
                 <td>{agent?.phone}</td>
                 <td>{agent?.email}</td>
-                <td><button onClick={() => handleVerifyAgent(agent?._id)} className={`${agent?.verified ? 'text-[#006769]' : 'text-black border-b border-black'}`}>{agent?.verified ? 'Verified' : 'Verify'}</button></td>
+                <td><button onClick={() => handleVerifyAgent(agent?._id)} className={`${agent?.verified ? 'text-[#0B1906]' : 'text-black border-b border-black'}`}>{agent?.verified ? 'Verified' : 'Verify'}</button></td>
               </tr>)
             }
           </tbody>
