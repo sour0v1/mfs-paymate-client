@@ -136,10 +136,10 @@ const Home = () => {
                             <span className='text-6xl text-[#0B1906]'><IoLogOut /></span>
                             <p className='text-[#0B1906]'>Cash Out Request</p>
                         </div>
-                        <div className='border p-6 flex flex-col justify-center items-center gap-2 w-48 h-52 duration-200 hover:scale-105 hover:border-[#0B1906]'>
+                        <Link to={'/agent/transaction/history/cash-in'} className='border p-6 flex flex-col justify-center items-center gap-2 w-48 h-52 duration-200 hover:scale-105 hover:border-[#0B1906]'>
                             <span className='text-6xl text-[#0B1906]'><FaMoneyCheckDollar /></span>
                             <p className='text-[#0B1906]'>Transactions</p>
-                        </div>
+                        </Link>
                     </div>
                 </div>
             </div>

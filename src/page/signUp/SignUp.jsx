@@ -39,16 +39,16 @@ const SignUp = () => {
     return (
         <div className='bg-[#0B1906] min-h-screen w-full flex justify-center items-center px-4 py-6 lg:px-0'>
 
-            <form onSubmit={handleSubmit(onSubmit)} className='w-full lg:w-1/3 flex flex-col justify-center items-center gap-4 text-[#0B1906]'>
-                <img className='mb-9' src={logo} alt="" />
+            <form onSubmit={handleSubmit(onSubmit)} className='w-full lg:w-1/3 flex flex-col justify-center items-center gap-4 text-[#0B1906] pt-9'>
+                <img className='mb-9 absolute top-6 left-6 border-l-4 pl-2 py-3 w-48' src={logo} alt="" />
                 <p className='text-white'>{regError}</p>
                 <div className='w-full'>
 
-                    <input {...register('name', { required: true })} className='py-3 px-4 w-full outline-none focus:outline-gray-100' type="text" placeholder='Name' />
+                    <input {...register('name', { required: true })} className='py-3 px-4 w-full outline-none focus:outline-gray-100 rounded-sm' type="text" placeholder='Name' />
                     {errors.name && <span className='text-white text-start inline-block w-full'>Name is required</span>}
                 </div>
                 <div className='w-full'>
-                    <input {...register('phone', { required: true })} className='py-3 px-4 w-full outline-none focus:outline-gray-100' type="number" placeholder='Phone Number' />
+                    <input {...register('phone', { required: true })} className='py-3 px-4 w-full outline-none focus:outline-gray-100 rounded-sm' type="number" placeholder='Phone Number' />
                     {errors.phone && <span className='text-white text-start inline-block w-full'>Phone Number is required</span>}
                 </div>
                 <div className='w-full'>
@@ -56,7 +56,7 @@ const SignUp = () => {
                     {errors.email && <span className='text-white text-start inline-block w-full'>Email is required</span>}
                 </div>
                 <div className='w-full relative'>
-                    <input {...register('password', { required: true, pattern: /^\d{5}$/ })} className='py-3 px-4 w-full outline-none focus:outline-gray-100' type={!open ? 'password' : 'text'} placeholder='Password' />
+                    <input {...register('password', { required: true, pattern: /^\d{5}$/ })} className='py-3 px-4 w-full outline-none focus:outline-gray-100 rounded-sm' type={!open ? 'password' : 'text'} placeholder='Password' />
                     <span onClick={() => setOpen(!open)} className='absolute pt-4 right-0 px-2'>{!open ? <FaRegEyeSlash /> : <IoEyeOutline />}</span>
                     {errors.password?.type === 'required' && <span className='text-white text-start inline-block w-full'>Password is required</span>}
                     {errors.password?.type === 'pattern' && <span className='text-white text-start inline-block w-full'>Password must be 5 digit number</span>}
@@ -78,7 +78,7 @@ const SignUp = () => {
                         <button className='py-3 w-1/3 bg-white text-[#0B1906]  flex justify-center items-center'>
                             <span className="loading loading-spinner loading-sm"></span>
                         </button> :
-                        <input className='py-3 w-1/3 border border-white text-white hover:bg-white hover:text-[#0B1906]' type="submit" value='Sign Up' />
+                        <input className='py-3 w-1/3 border rounded-full border-white text-white hover:bg-white hover:text-[#0B1906]' type="submit" value='Sign Up' />
                 }
                 <div className='mt-4'>
                     <Link to={'/'} className='text-white border-b hover:border-b-2'>Log In</Link>

@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import useAxiosSecure from '../../../hook/useAxiosSecure';
 import { RxCross1 } from 'react-icons/rx';
+import { IoEyeOutline } from 'react-icons/io5';
+import { FaRegEyeSlash } from 'react-icons/fa';
 
 const ConfirmCashIn = () => {
     const location = useLocation();
@@ -14,6 +16,7 @@ const ConfirmCashIn = () => {
     const [loading, setLoading] = useState(false);
     const [inserted, setInserted] = useState(false);
     const [money, setMoney] = useState(null);
+    const [open, setOpen] = useState(false);
 
     // console.log(userIdentity)
     const handleConfirm = async (e) => {
@@ -61,16 +64,19 @@ const ConfirmCashIn = () => {
             <p className='text-white mx-auto'>Cash-In request to  <span className='py-1 underline'>{phoneNumber}</span></p>
             <p className='text-white'>{message}</p>
             <form onSubmit={handleConfirm} className='w-full lg:w-1/4 mx-auto space-y-3'>
-                <input onChange={handlePhoneChange} className='w-full py-3 px-4 outline-none bg-white' name='balance' type='number' placeholder='Enter amount' />
-                <input onChange={handlePassChange} className='w-full py-3 px-4 outline-none bg-white' name='password' type='text' placeholder='Enter password' />
-                <button className={`w-full py-3 px-4 outline-none  text-[#0B1906] rounded-xl font-medium  flex justify-center items-center ${changed ? 'bg-white' : 'bg-gray-300'}`} type="submit" value={'Confirm'} disabled={changed ? false : true}>
+                <input onChange={handlePhoneChange} className='w-full py-3 px-4 outline-none bg-white rounded-sm' name='balance' type='number' placeholder='Enter amount' />
+                <div className='w-full relative'>
+                    <input onChange={handlePassChange} className='w-full py-3 px-4 rounded-sm outline-none bg-white' name='password' type={open ? 'text' : 'password'} placeholder='Enter password' />
+                    <span onClick={() => setOpen(!open)} className='absolute pt-4 right-0 px-2'>{!open ? <FaRegEyeSlash /> : <IoEyeOutline />}</span>
+                </div>
+                <button className={`w-full py-3 px-4 outline-none  text-[#0B1906] rounded-full font-medium  flex justify-center items-center ${changed ? 'bg-white' : 'bg-gray-300'}`} type="submit" value={'Confirm'} disabled={changed ? false : true}>
                     Request
                 </button>
             </form>
             {inserted &&
                 <div className='absolute inset-0 bg-black bg-opacity-80 flex justify-center items-center'>
                     <div className='bg-white p-4 w-full lg:w-1/3 mx-4 lg:mx-0 relative rounded-xl'>
-                        <button className='absolute top-3 right-4 text-xl p-2 rounded-full hover:bg-gray-100' onClick={() => {setInserted(false) ; setMoney(null)}}><RxCross1 /></button>
+                        <button className='absolute top-3 right-4 text-xl p-2 rounded-full hover:bg-gray-100' onClick={() => { setInserted(false); setMoney(null) }}><RxCross1 /></button>
                         <p className='my-16 text-xl text-[#0B1906]'>Requested Successfully for <span className='font-medium'>{money}</span> to <span className='font-medium'>{phoneNumber}</span></p>
                     </div>
                 </div>

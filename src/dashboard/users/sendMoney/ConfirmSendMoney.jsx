@@ -3,6 +3,8 @@ import { useLocation } from 'react-router-dom';
 import useAxiosSecure from '../../../hook/useAxiosSecure';
 import { AuthContext } from '../../../provider/Provider';
 import { RxCross1 } from 'react-icons/rx';
+import { IoEyeOutline } from 'react-icons/io5';
+import { FaRegEyeSlash } from 'react-icons/fa';
 
 const ConfirmSendMoney = () => {
     const location = useLocation();
@@ -14,6 +16,7 @@ const ConfirmSendMoney = () => {
     const [message, setMessage] = useState(null);
     const [loading, setLoading] = useState(false);
     const [modified, setModified] = useState(false);
+    const [open, setOpen] = useState(false);
 
     // console.log(userIdentity)
     const handleConfirm = async (e) => {
@@ -61,7 +64,10 @@ const ConfirmSendMoney = () => {
             <p className='text-white'>{message}</p>
             <form onSubmit={handleConfirm} className='w-full lg:w-1/4 mx-auto space-y-3'>
                 <input onChange={handlePhoneChange} className='w-full py-3 px-4 outline-none bg-white' name='balance' type='number' placeholder='Enter amount' />
-                <input onChange={handlePassChange} className='w-full py-3 px-4 outline-none bg-white' name='password' type='text' placeholder='Enter password' />
+                <div className='w-full relative'>
+                    <input onChange={handlePassChange} className='w-full py-3 px-4 outline-none bg-white' name='password' type={open ? 'text' : 'password'} placeholder='Enter password' />
+                    <span onClick={() => setOpen(!open)} className='absolute pt-4 right-0 px-2'>{!open ? <FaRegEyeSlash /> : <IoEyeOutline />}</span>
+                </div>
                 <button className={`w-full py-3 px-4 outline-none  text-[#0B1906] font-medium rounded-xl  flex justify-center items-center ${changed ? 'bg-white' : 'bg-gray-300 '}`} type="submit" value={'Confirm'} disabled={changed ? false : true}>
                     Send
                 </button>
@@ -79,7 +85,7 @@ const ConfirmSendMoney = () => {
                     <span className="loading loading-spinner loading-lg text-white"></span> :
                 </div>
             }
-            
+
         </div>
     );
 };
