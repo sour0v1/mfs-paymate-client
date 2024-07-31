@@ -24,6 +24,8 @@ import AgentCashoutHistory from "../dashboard/agents/agentTransactions/AgentCash
 import CashOut from "../dashboard/users/cashOut/CashOut";
 import CheckAgentNo from "../dashboard/users/cashOut/CheckAgentNo";
 import ConfirmCashOut from "../dashboard/users/cashOut/ConfirmCashOut";
+import CashoutHistory from "../dashboard/users/userTransactions/CashoutHistory";
+import CashoutRequest from "../dashboard/agents/CashoutRequest";
 // import PrivateRoute from "../routes/PrivateRoute";
 
 const router = createBrowserRouter([
@@ -83,6 +85,10 @@ const router = createBrowserRouter([
                     {
                         path : 'history/cash-in',
                         element : <CashInHistory></CashInHistory>
+                    },
+                    {
+                        path : 'history/cash-out',
+                        element : <CashoutHistory></CashoutHistory>
                     }
                 ]
             },
@@ -118,6 +124,10 @@ const router = createBrowserRouter([
             {
                 path : '/agent/cash-in-request',
                 element : <CashInRequest></CashInRequest>
+            },
+            {
+                path : '/agent/cash-out-request',
+                element : <CashoutRequest></CashoutRequest>
             },
             {
                 path : '/agent/transaction',

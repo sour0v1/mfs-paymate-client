@@ -1,13 +1,12 @@
 import React, { useEffect, useState } from 'react';
-import { BsCashCoin } from 'react-icons/bs';
-import { FaHome } from 'react-icons/fa';
-import { Link } from 'react-router-dom';
-import MiniHeader from '../../components/MiniHeader';
 import useAxiosSecure from '../../hook/useAxiosSecure';
 import { useQuery } from '@tanstack/react-query';
+import MiniHeader from '../../components/MiniHeader';
+import { BsCashCoin } from 'react-icons/bs';
 import { RxCross1 } from 'react-icons/rx';
+import { IoLogOut } from 'react-icons/io5';
 
-const CashInRequest = () => {
+const CashoutRequest = () => {
     const axiosSecure = useAxiosSecure();
     const [loading, setLoading] = useState(false);
     const [message, setMessage] = useState(null);
@@ -22,7 +21,7 @@ const CashInRequest = () => {
     const { data: cashInRequests, isFetching, isPending, refetch } = useQuery({
         queryKey: ['requests'],
         queryFn: async () => {
-            const res = await axiosSecure.get(`/agent/cash-in-requests?agent=${agent}`);
+            const res = await axiosSecure.get(`/agent/cash-out-requests?agent=${agent}`);
             return res.data;
         },
         enabled: !!agent
@@ -33,7 +32,7 @@ const CashInRequest = () => {
     const handleCashInRequest = async (id) => {
         setLoading(true);
         console.log(id);
-        const res = await axiosSecure.post(`/agent/confirm/cash-in-request?id=${id}`);
+        const res = await axiosSecure.post(`/agent/confirm/cash-out-request?id=${id}`);
         console.log(res.data);
         if (res?.data?.modifiedCount) {
             refetch();
@@ -48,7 +47,7 @@ const CashInRequest = () => {
 
     return (
         <div className='bg-[#0B1906] min-h-screen w-full'>
-            <MiniHeader icon={<BsCashCoin />} text={'Cash In Request'}></MiniHeader>
+            <MiniHeader icon={<IoLogOut />} text={'Cash Out Request'}></MiniHeader>
             {
                 isFetching || isPending ?
                     <div className='text-white max-w-5xl mx-auto text-center w-full pt-24 pb-9'>
@@ -72,7 +71,7 @@ const CashInRequest = () => {
                                     {/* row 1 */}
                                     <tr>
                                         <th>{idx + 1}</th>
-                                        <td>Cash in request</td>
+                                        <td>Cash out request</td>
                                         <td>{transaction?.balance}</td>
                                         <td>{transaction?.from}</td>
                                         <td>{transaction?.accepted ? <span>Confirmed</span> : <button onClick={() => {
@@ -104,4 +103,4 @@ const CashInRequest = () => {
     );
 };
 
-export default CashInRequest;
+export default CashoutRequest;

@@ -16,8 +16,9 @@ const UserTransactions = () => {
             <div className='max-w-6xl mx-auto flex flex-col lg:flex-row justify-center items-start gap-6 my-3'>
                 <div id='transaction' className='px-6 h-full border-r flex flex-col items-end lg:items-start gap-3 py-4 w-full lg:w-fit'>
                     <NavLink to={'history/send-money'}>Send Money</NavLink>
-                    <NavLink to={'history/recieve-money'}>Recieve Money</NavLink>
+                    <NavLink to={'history/recieve-money'}>Recieved Money</NavLink>
                     <NavLink to={'history/cash-in'}>Cash In Request</NavLink>
+                    <NavLink to={'history/cash-out'}>Cash Out Request</NavLink>
                 </div>
                 <div className='w-full lg:w-3/4 border-l px-6 pb-6'>
                     <Outlet></Outlet>

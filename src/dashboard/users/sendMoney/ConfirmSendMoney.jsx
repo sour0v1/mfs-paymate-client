@@ -32,7 +32,7 @@ const ConfirmSendMoney = () => {
             balance, password, phoneNumber, userIdentity
         }
 
-        const confirmation = await axiosSecure.post(`/user/request/send-money`, sendInfo);
+        const confirmation = await axiosSecure.post(`/user/confirm/send-money`, sendInfo);
         console.log(confirmation?.data);
         if (confirmation?.data.insertedId) {
             setModified(true);

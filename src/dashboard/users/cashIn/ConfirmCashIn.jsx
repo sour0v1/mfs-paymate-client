@@ -33,7 +33,7 @@ const ConfirmCashIn = () => {
             balance, password, phoneNumber, userIdentity
         }
 
-        const confirmation = await axiosSecure.post(`/user/confirm/cash-in`, sendInfo);
+        const confirmation = await axiosSecure.post(`/user/request/cash-in`, sendInfo);
         console.log(confirmation?.data);
         if (confirmation?.data.insertedMessage) {
             setInserted(confirmation?.data.insertedMessage);

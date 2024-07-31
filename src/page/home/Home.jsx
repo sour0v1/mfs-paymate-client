@@ -29,8 +29,8 @@ const Home = () => {
 
     const handleLogOut = async() => {
         // Have to do
-        const res = await axiosSecure.post(`/logout?user=${user}`)
-        console.log(res?.data);
+        // const res = await axiosSecure.post(`/logout?user=${user}`)
+        // console.log(res?.data);
         const local = localStorage.removeItem('userIdentity');
         console.log(local);
         setUserIdentity(local);
@@ -142,10 +142,10 @@ const Home = () => {
                             <span className='text-6xl text-[#0B1906]'><BsCashCoin /></span>
                             <p className='text-[#0B1906]'>Cash In Request</p>
                         </Link>
-                        <div className='border p-6 flex flex-col justify-center items-center gap-2 w-48 h-52 duration-200 hover:scale-105 hover:border-[#0B1906]'>
+                        <Link to={'/agent/cash-out-request'} className='border p-6 flex flex-col justify-center items-center gap-2 w-48 h-52 duration-200 hover:scale-105 hover:border-[#0B1906]'>
                             <span className='text-6xl text-[#0B1906]'><IoLogOut /></span>
                             <p className='text-[#0B1906]'>Cash Out Request</p>
-                        </div>
+                        </Link>
                         <Link to={'/agent/transaction/history/cash-in'} className='border p-6 flex flex-col justify-center items-center gap-2 w-48 h-52 duration-200 hover:scale-105 hover:border-[#0B1906]'>
                             <span className='text-6xl text-[#0B1906]'><FaMoneyCheckDollar /></span>
                             <p className='text-[#0B1906]'>Transactions</p>
