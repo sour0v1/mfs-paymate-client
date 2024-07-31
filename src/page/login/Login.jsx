@@ -47,16 +47,16 @@ const Login = () => {
                 <p className='text-white'>{logError}</p>
                 <div className='w-full'>
                     <input {...register('userIdentity', { required: true })} className='py-3 px-4 w-full outline-none focus:outline-gray-100 rounded-sm' type="text" placeholder='Phone or Email' />
-                    {errors.userIdentity && <span className='text-white text-start inline-block w-full'>Phone or Email is required</span>}
+                    {errors.userIdentity && <span className='text-white text-start inline-block w-full pt-1'>Phone or Email is required</span>}
                 </div>
                 <div className='w-full relative'>
                     <input {...register('password', { required: true })} className='py-3 px-4 w-full outline-none focus:outline-gray-100 rounded-sm' type={!open ? 'password' : 'text'} placeholder='Password' />
                     <span onClick={() => setOpen(!open)} className='absolute pt-4 right-0 px-2'>{!open ? <FaRegEyeSlash /> : <IoEyeOutline />}</span>
-                    {errors.password && <span className='text-white text-start inline-block w-full'>Password is required</span>}
+                    {errors.password && <span className='text-white text-start inline-block w-full pt-1'>Password is required</span>}
                 </div>
                 {
                     loading ?
-                        <button className='py-3 w-1/3 bg-white text-[#0B1906]  flex justify-center items-center'>
+                        <button className='py-3 w-1/3 bg-white text-[#0B1906] rounded-full flex justify-center items-center'>
                             <span className="loading loading-spinner loading-sm"></span>
                         </button> :
                         <input className='py-3 w-1/3 border border-white rounded-full text-white hover:bg-white hover:text-[#0B1906]' type="submit" value='Sign In' />

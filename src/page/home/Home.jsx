@@ -17,10 +17,20 @@ const Home = () => {
     const [loading, setLoading] = useState(false);
     const axiosSecure = useAxiosSecure();
     const [tap, setTap] = useState(true);
+    const [user, setUser] = useState(null);
     const navigate = useNavigate();
-    console.log(userInfo);
+    console.log(user);
 
-    const handleLogOut = () => {
+    useEffect(() => {
+        const userData = localStorage.getItem('userIdentity');
+        setUser(userData);
+    }, [])
+
+
+    const handleLogOut = async() => {
+        // Have to do
+        const res = await axiosSecure.post(`/logout?user=${user}`)
+        console.log(res?.data);
         const local = localStorage.removeItem('userIdentity');
         console.log(local);
         setUserIdentity(local);
@@ -91,10 +101,10 @@ const Home = () => {
                             <span className='text-6xl text-[#0B1906]'><BsCashCoin /></span>
                             <p className='text-[#0B1906]'>Cash In</p>
                         </Link>
-                        <div className='border p-6 flex flex-col justify-center items-center gap-2 w-48 h-52 duration-200 hover:scale-105 hover:border-[#0B1906]'>
+                        <Link to={'/user/cash-out/check-agent'} className='border p-6 flex flex-col justify-center items-center gap-2 w-48 h-52 duration-200 hover:scale-105 hover:border-[#0B1906]'>
                             <span className='text-6xl text-[#0B1906]'><IoLogOut /></span>
                             <p className='text-[#0B1906]'>Cash Out</p>
-                        </div>
+                        </Link>
                         <Link to={'/user/send-money'} className='border p-6 flex flex-col justify-center items-center gap-2 w-48 h-52 duration-200 hover:scale-105 hover:border-[#0B1906]'>
                             <span className='text-6xl text-[#0B1906]'><IoIosSend /></span>
                             <p className='text-[#0B1906]'>Send Money</p>

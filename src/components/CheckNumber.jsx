@@ -3,7 +3,7 @@ import { IoIosArrowRoundForward } from 'react-icons/io';
 import { useNavigate } from 'react-router-dom';
 import useAxiosSecure from '../hook/useAxiosSecure';
 
-const CheckNumber = ({ role }) => {
+const CheckNumber = ({ role, type }) => {
     const axiosSecure = useAxiosSecure();
     const [message, setMessage] = useState(null);
     const [checkNumber, setCheckNumber] = useState(true);
@@ -22,7 +22,7 @@ const CheckNumber = ({ role }) => {
             if (role === 'user') {
                return navigate(`/user/send-money/confirm`, { state: { number: phone } });
             }
-            return navigate(`/user/cash-in/confirm`, {state : {number : phone }});
+            return navigate(`/user/${type}/confirm`, {state : {number : phone }});
         }
         if (checkPhone?.data.message) {
             setMessage(checkPhone?.data.message);

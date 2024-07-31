@@ -1,12 +1,12 @@
 import React from 'react';
 import CheckNumber from '../../../components/CheckNumber';
 
-const CheckAgent = () => {
+const CheckAgentNo = () => {
     return (
         <>
-        <CheckNumber role={'agent'} type={'cash-in'}></CheckNumber>
+            <CheckNumber role={'agent'} type={'cash-out'}></CheckNumber>
         </>
     );
 };
 
-export default CheckAgent;
+export default CheckAgentNo;

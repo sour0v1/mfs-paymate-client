@@ -45,21 +45,21 @@ const SignUp = () => {
                 <div className='w-full'>
 
                     <input {...register('name', { required: true })} className='py-3 px-4 w-full outline-none focus:outline-gray-100 rounded-sm' type="text" placeholder='Name' />
-                    {errors.name && <span className='text-white text-start inline-block w-full'>Name is required</span>}
+                    {errors.name && <span className='text-white text-start inline-block w-full pt-1'>Name is required</span>}
                 </div>
                 <div className='w-full'>
                     <input {...register('phone', { required: true })} className='py-3 px-4 w-full outline-none focus:outline-gray-100 rounded-sm' type="number" placeholder='Phone Number' />
-                    {errors.phone && <span className='text-white text-start inline-block w-full'>Phone Number is required</span>}
+                    {errors.phone && <span className='text-white text-start inline-block w-full pt-1'>Phone Number is required</span>}
                 </div>
                 <div className='w-full'>
                     <input {...register('email', { required: true })} className='py-3 px-4 w-full outline-none focus:outline-gray-100' type="email" placeholder='Email' />
-                    {errors.email && <span className='text-white text-start inline-block w-full'>Email is required</span>}
+                    {errors.email && <span className='text-white text-start inline-block w-full pt-1'>Email is required</span>}
                 </div>
                 <div className='w-full relative'>
                     <input {...register('password', { required: true, pattern: /^\d{5}$/ })} className='py-3 px-4 w-full outline-none focus:outline-gray-100 rounded-sm' type={!open ? 'password' : 'text'} placeholder='Password' />
                     <span onClick={() => setOpen(!open)} className='absolute pt-4 right-0 px-2'>{!open ? <FaRegEyeSlash /> : <IoEyeOutline />}</span>
-                    {errors.password?.type === 'required' && <span className='text-white text-start inline-block w-full'>Password is required</span>}
-                    {errors.password?.type === 'pattern' && <span className='text-white text-start inline-block w-full'>Password must be 5 digit number</span>}
+                    {errors.password?.type === 'required' && <span className='text-white text-start inline-block w-full pt-1'>Password is required</span>}
+                    {errors.password?.type === 'pattern' && <span className='text-white text-start inline-block w-full pt-1'>Password must be 5 digit number</span>}
                 </div>
                 <div className='text-white flex justify-center items-center gap-9'>
                     <label className='inline-flex items-center gap-2'>
@@ -75,7 +75,7 @@ const SignUp = () => {
                 </div>
                 {
                     loading ?
-                        <button className='py-3 w-1/3 bg-white text-[#0B1906]  flex justify-center items-center'>
+                        <button className='py-3 w-1/3 bg-white text-[#0B1906]  flex justify-center items-center rounded-full'>
                             <span className="loading loading-spinner loading-sm"></span>
                         </button> :
                         <input className='py-3 w-1/3 border rounded-full border-white text-white hover:bg-white hover:text-[#0B1906]' type="submit" value='Sign Up' />
