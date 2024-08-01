@@ -109,7 +109,7 @@ const CashInRequest = () => {
             }
             {loading &&
                 <div className='absolute inset-0 bg-black bg-opacity-50 flex justify-center items-center'>
-                    <span className="loading loading-spinner loading-lg text-white"></span> :
+                    <span className="loading loading-spinner loading-lg text-white"></span>
                 </div>
             }
 

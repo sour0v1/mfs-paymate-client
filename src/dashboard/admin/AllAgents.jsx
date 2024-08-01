@@ -36,6 +36,8 @@ const AllAgents = () => {
               <th>Name</th>
               <th>Phone</th>
               <th>Email</th>
+              <th></th>
+              {/* <th></th> */}
             </tr>
           </thead>
           <tbody>
@@ -46,7 +48,10 @@ const AllAgents = () => {
                 <td>{agent?.name}</td>
                 <td>{agent?.phone}</td>
                 <td>{agent?.email}</td>
-                <td><button onClick={() => handleVerifyAgent(agent?._id)} className={`${agent?.verified ? 'text-[#1A1A1B]' : 'text-black border-b border-black'}`}>{agent?.verified ? 'Verified' : 'Verify'}</button></td>
+                <td><button onClick={() => handleVerifyAgent(agent?._id)} disabled = {agent?.verified ? true : false} className={`${agent?.verified ? 'text-[#1A1A1B]' : 'text-black border-b border-black'}`}>{agent?.verified ? 'Verified' : 'Verify'}</button></td>
+                {/* <td>
+                  <button>{agent?.active ? 'Block' : 'Active'}</button>
+                </td> */}
               </tr>)
             }
           </tbody>

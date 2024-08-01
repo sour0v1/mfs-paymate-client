@@ -27,7 +27,7 @@ const Home = () => {
     }, [])
 
 
-    const handleLogOut = async() => {
+    const handleLogOut = async () => {
         // Have to do
         // const res = await axiosSecure.post(`/logout?user=${user}`)
         // console.log(res?.data);
@@ -89,7 +89,7 @@ const Home = () => {
                         <div className='flex flex-col justify-center items-start'>
                             <span className='font-medium'>{userInfo?.name}</span>
                             <span>{userInfo?.phone}</span>
-                            <button onClick={handleLogOut} className='border-b hover:border-b-2 text-white'>Log Out</button>
+                            <button onClick={handleLogOut} className='underline text-white'>Log Out</button>
                         </div>
                     </div>
                 </div>
@@ -123,14 +123,17 @@ const Home = () => {
         return (
             <div>
                 <div className='bg-[#1A1A1B] py-6 px-9 flex flex-col lg:flex-row justify-between items-center gap-4'>
-                    <img className='w-36 lg:w-48' src={logo} alt="" />
+                    <div className='relative px-10'>
+                        <img className='w-36 lg:w-48' src={logo} alt="" />
+                        <span className='absolute top-0 right-0 text-white text-sm font-roboto'>Agent</span>
+                    </div>
                     <BalanceBtn handleCheckBalance={handleCheckBalance} loading={loading} balance={balance} tap={tap}></BalanceBtn>
                     <div className='text-white flex justify-center items-center gap-2'>
                         <span className=' text-3xl lg:text-4xl border-r-2 p-2 rounded-full'><FaRegUserCircle /></span>
                         <div className='flex flex-col justify-center items-start'>
                             <span className='font-medium'>{userInfo?.name}</span>
                             <span>{userInfo?.phone}</span>
-                            <button onClick={handleLogOut} className='border-b text-white'>Log Out</button>
+                            <button onClick={handleLogOut} className='underline text-white'>Log Out</button>
                         </div>
                     </div>
                 </div>
@@ -160,7 +163,10 @@ const Home = () => {
         return (
             <div>
                 <div className='bg-[#1A1A1B] py-6 px-9 flex  flex-col lg:flex-row justify-between items-center gap-4'>
-                    <img className='w-32 lg:w-48' src={logo} alt="" />
+                    <div className='relative px-10'>
+                        <img className='w-36 lg:w-48' src={logo} alt="" />
+                        <span className='absolute top-0 right-0 text-white text-sm font-roboto'>Admin</span>
+                    </div>
                     <h1 className=' text-xl lg:text-2xl text-white text-center font-bold'>Dashboard</h1>
                     <div className='text-white flex justify-center items-center gap-3'>
                         <span className='text-2xl lg:text-4xl'><FaRegUserCircle /></span>
