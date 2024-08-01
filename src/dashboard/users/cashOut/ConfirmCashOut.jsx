@@ -70,7 +70,7 @@ const ConfirmCashOut = () => {
                     <input onChange={handlePassChange} className='w-full py-3 px-4 rounded-sm outline-none bg-white' name='password' type={open ? 'text' : 'password'} placeholder='Enter password' />
                     <span onClick={() => setOpen(!open)} className='absolute pt-4 right-0 px-2'>{!open ? <FaRegEyeSlash /> : <IoEyeOutline />}</span>
                 </div>
-                <button className={`w-full py-3 px-4 outline-none  text-[#0B1906] rounded-full font-medium  flex justify-center items-center ${changed ? 'bg-white' : 'bg-gray-300'}`} type="submit" value={'Confirm'} disabled={changed ? false : true}>
+                <button className={`w-full py-3 px-4 outline-none  text-[#1A1A1B] rounded-full font-medium  flex justify-center items-center ${changed ? 'bg-white' : 'bg-gray-300'}`} type="submit" value={'Confirm'} disabled={changed ? false : true}>
                     Request
                 </button>
             </form>
@@ -78,13 +78,13 @@ const ConfirmCashOut = () => {
                 <div className='absolute inset-0 bg-black bg-opacity-80 flex justify-center items-center'>
                     <div className='bg-white p-4 w-full lg:w-1/3 mx-4 lg:mx-0 relative rounded-xl'>
                         <button className='absolute top-3 right-4 text-xl p-2 rounded-full hover:bg-gray-100' onClick={() => { setInserted(false); setMoney(null) }}><RxCross1 /></button>
-                        <p className='my-16 text-xl text-[#0B1906]'>Requested Successfully for <span className='font-medium'>{money}</span> to <span className='font-medium'>{phoneNumber}</span></p>
+                        <p className='my-16 text-xl text-[#1A1A1B]'>Requested Successfully for <span className='font-medium'>{money}</span> to <span className='font-medium'>{phoneNumber}</span></p>
                     </div>
                 </div>
             }
             {loading &&
                 <div className='absolute inset-0 bg-black bg-opacity-50 flex justify-center items-center'>
-                    <span className="loading loading-spinner loading-lg text-white"></span> :
+                    <span className="loading loading-spinner loading-lg text-white"></span>
                 </div>
             }
         </div>

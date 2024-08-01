@@ -46,7 +46,7 @@ const CashInHistory = () => {
                             <td>Cash In</td>
                             <td>{transaction?.balance}</td>
                             <td>{transaction?.to}</td>
-                            <td>{transaction?.accepted ? <span className=' px-2 rounded-full'>Accepeted</span> : <span className='bg-white px-2 rounded-full text-[#0B1906] py-1 inline-block'>Pending</span>}</td>
+                            <td>{transaction?.accepted ? <span className=' px-2 rounded-full'>Accepeted</span> : <span className='bg-white px-2 rounded-full text-[#1A1A1B] py-1 inline-block'>Pending</span>}</td>
                             <td>{transaction?.date}</td>
                         </tr>
                     </tbody>)

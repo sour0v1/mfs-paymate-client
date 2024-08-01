@@ -33,6 +33,7 @@ const CashoutHistory = () => {
                         <th></th>
                         <th>Type</th>
                         <th>Amount</th>
+                        <th>Charge</th>
                         <th>To</th>
                         <th>Status</th>
                         <th>Date</th>
@@ -43,10 +44,11 @@ const CashoutHistory = () => {
                         {/* row 1 */}
                         <tr>
                             <th>{idx + 1}</th>
-                            <td>Cash In</td>
+                            <td>Cash Out</td>
                             <td>{transaction?.balance}</td>
+                            <td>{transaction?.charge}</td>
                             <td>{transaction?.to}</td>
-                            <td>{transaction?.accepted ? <span className=' px-2 rounded-full'>Accepeted</span> : <span className='bg-white px-2 rounded-full text-[#0B1906] py-1 inline-block'>Pending</span>}</td>
+                            <td>{transaction?.accepted ? <span className=' px-2 rounded-full'>Accepeted</span> : <span className='bg-white px-2 rounded-full text-[#1A1A1B] py-1 inline-block'>Pending</span>}</td>
                             <td>{transaction?.date}</td>
                         </tr>
                     </tbody>)

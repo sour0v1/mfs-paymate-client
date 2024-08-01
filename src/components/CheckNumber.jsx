@@ -48,7 +48,7 @@ const CheckNumber = ({ role, type }) => {
             <span className='text-white'>{message}</span>
             <div className='w-full flex flex-row justify-center items-center gap-1'>
                 <input className='w-full py-3 px-4 outline-none' name='phone' type="number" placeholder={role === 'user' ? `Enter user's phone number` : `Enter agent's phone number`} />
-                <button className={` ${checkNumber ? 'bg-gray-300' : 'text-[#0B1906] bg-white'} text-2xl py-3 px-3`} disabled={checkNumber ? true : false}>
+                <button className={` ${checkNumber ? 'bg-gray-300' : 'text-[#1A1A1B] bg-white'} text-2xl py-3 px-3`} disabled={checkNumber ? true : false}>
                     <IoIosArrowRoundForward />
                 </button>
             </div>

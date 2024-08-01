@@ -6,7 +6,7 @@ import './AgentTransactions.css'
 
 const AgentTransactions = () => {
     return (
-        <div className='bg-[#0B1906] text-white pt-16 pb-6 min-h-screen relative px-4 lg:px-0'>
+        <div className='bg-[#1A1A1B] text-white pt-16 pb-6 min-h-screen relative px-4 lg:px-0'>
             <MiniHeader icon={<FaMoneyCheckDollar />} text={'Transaction History'}></MiniHeader>
             <div className='max-w-6xl mx-auto flex flex-col lg:flex-row justify-center items-start gap-6 my-3'>
                 <div id='agent' className='px-6 h-full border-r flex flex-col items-end lg:items-start gap-3 py-4 w-full lg:w-fit'>

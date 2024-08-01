@@ -47,7 +47,7 @@ const AgentCashoutHistory = () => {
                         {/* row 1 */}
                         <tr>
                             <th>{idx + 1}</th>
-                            <td>Cash In</td>
+                            <td>Cash Out</td>
                             <td>{transaction?.balance}</td>
                             <td>{transaction?.from}</td>
                             <td>{transaction?.date}</td>

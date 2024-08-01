@@ -71,17 +71,17 @@ const Home = () => {
     }, [balance])
 
     if (isPending) {
-        return <div className='w-screen min-h-screen flex justify-center items-center bg-[#0B1906] text-white'>loading...</div>
+        return <div className='w-screen min-h-screen flex justify-center items-center bg-[#1A1A1B] text-white'>loading...</div>
     }
     // if (!userInfo) {
-    //     return <div className='w-screen h-screen flex justify-center items-center text-[#0B1906]'>loading...</div>
+    //     return <div className='w-screen h-screen flex justify-center items-center text-[#1A1A1B]'>loading...</div>
     // }
 
 
     if (userInfo?.role === 'user') {
         return (
             <div>
-                <div className='bg-[#0B1906] py-6 px-9 flex flex-col lg:flex-row justify-between items-center gap-4'>
+                <div className='bg-[#1A1A1B] py-6 px-9 flex flex-col lg:flex-row justify-between items-center gap-4'>
                     <img className='w-36 lg:w-48' src={logo} alt="" />
                     <BalanceBtn handleCheckBalance={handleCheckBalance} loading={loading} balance={balance} tap={tap}></BalanceBtn>
                     <div className='text-white flex justify-center items-center gap-3'>
@@ -95,23 +95,23 @@ const Home = () => {
                 </div>
                 {/* user home */}
                 <div className='my-9 max-w-3xl mx-auto'>
-                    <h1 className='text-2xl text-[#0B1906] text-center font-bold my-6'>Services</h1>
+                    <h1 className='text-2xl text-[#1A1A1B] text-center font-bold my-6'>Services</h1>
                     <div className='flex flex-col lg:flex-row justify-center items-center gap-6'>
-                        <Link to={'/user/cash-in'} className='border p-6 flex flex-col justify-center items-center gap-2 w-48 h-52 duration-200 hover:scale-105 hover:border-[#0B1906]'>
-                            <span className='text-6xl text-[#0B1906]'><BsCashCoin /></span>
-                            <p className='text-[#0B1906]'>Cash In</p>
+                        <Link to={'/user/cash-in'} className='border p-6 flex flex-col justify-center items-center gap-2 w-48 h-52 duration-200 hover:scale-105 hover:border-[#1A1A1B]'>
+                            <span className='text-6xl text-[#1A1A1B]'><BsCashCoin /></span>
+                            <p className='text-[#1A1A1B]'>Cash In</p>
                         </Link>
-                        <Link to={'/user/cash-out/check-agent'} className='border p-6 flex flex-col justify-center items-center gap-2 w-48 h-52 duration-200 hover:scale-105 hover:border-[#0B1906]'>
-                            <span className='text-6xl text-[#0B1906]'><IoLogOut /></span>
-                            <p className='text-[#0B1906]'>Cash Out</p>
+                        <Link to={'/user/cash-out/check-agent'} className='border p-6 flex flex-col justify-center items-center gap-2 w-48 h-52 duration-200 hover:scale-105 hover:border-[#1A1A1B]'>
+                            <span className='text-6xl text-[#1A1A1B]'><IoLogOut /></span>
+                            <p className='text-[#1A1A1B]'>Cash Out</p>
                         </Link>
-                        <Link to={'/user/send-money'} className='border p-6 flex flex-col justify-center items-center gap-2 w-48 h-52 duration-200 hover:scale-105 hover:border-[#0B1906]'>
-                            <span className='text-6xl text-[#0B1906]'><IoIosSend /></span>
-                            <p className='text-[#0B1906]'>Send Money</p>
+                        <Link to={'/user/send-money'} className='border p-6 flex flex-col justify-center items-center gap-2 w-48 h-52 duration-200 hover:scale-105 hover:border-[#1A1A1B]'>
+                            <span className='text-6xl text-[#1A1A1B]'><IoIosSend /></span>
+                            <p className='text-[#1A1A1B]'>Send Money</p>
                         </Link>
-                        <Link to={'/user/transactions/history/send-money'} className='border p-6 flex flex-col justify-center items-center gap-2 w-48 h-52 duration-200 hover:scale-105 hover:border-[#0B1906]'>
-                            <span className='text-6xl text-[#0B1906]'><FaMoneyCheckDollar /></span>
-                            <p className='text-[#0B1906]'>Transactions</p>
+                        <Link to={'/user/transactions/history/send-money'} className='border p-6 flex flex-col justify-center items-center gap-2 w-48 h-52 duration-200 hover:scale-105 hover:border-[#1A1A1B]'>
+                            <span className='text-6xl text-[#1A1A1B]'><FaMoneyCheckDollar /></span>
+                            <p className='text-[#1A1A1B]'>Transactions</p>
                         </Link>
                     </div>
                 </div>
@@ -122,7 +122,7 @@ const Home = () => {
     if (userInfo?.role === 'agent') {
         return (
             <div>
-                <div className='bg-[#0B1906] py-6 px-9 flex flex-col lg:flex-row justify-between items-center gap-4'>
+                <div className='bg-[#1A1A1B] py-6 px-9 flex flex-col lg:flex-row justify-between items-center gap-4'>
                     <img className='w-36 lg:w-48' src={logo} alt="" />
                     <BalanceBtn handleCheckBalance={handleCheckBalance} loading={loading} balance={balance} tap={tap}></BalanceBtn>
                     <div className='text-white flex justify-center items-center gap-2'>
@@ -136,19 +136,19 @@ const Home = () => {
                 </div>
                 {/* user home */}
                 <div className='my-9 max-w-3xl mx-auto'>
-                    <h1 className='text-2xl text-[#0B1906] text-center font-bold my-6'>Services</h1>
+                    <h1 className='text-2xl text-[#1A1A1B] text-center font-bold my-6'>Services</h1>
                     <div className='flex flex-col lg:flex-row justify-center items-center gap-6 '>
-                        <Link to={'/agent/cash-in-request'} className='border p-6 flex flex-col justify-center items-center gap-2 w-48 h-52 duration-200 hover:scale-105 hover:border-[#0B1906]'>
-                            <span className='text-6xl text-[#0B1906]'><BsCashCoin /></span>
-                            <p className='text-[#0B1906]'>Cash In Request</p>
+                        <Link to={'/agent/cash-in-request'} className='border p-6 flex flex-col justify-center items-center gap-2 w-48 h-52 duration-200 hover:scale-105 hover:border-[#1A1A1B]'>
+                            <span className='text-6xl text-[#1A1A1B]'><BsCashCoin /></span>
+                            <p className='text-[#1A1A1B]'>Cash In Request</p>
                         </Link>
-                        <Link to={'/agent/cash-out-request'} className='border p-6 flex flex-col justify-center items-center gap-2 w-48 h-52 duration-200 hover:scale-105 hover:border-[#0B1906]'>
-                            <span className='text-6xl text-[#0B1906]'><IoLogOut /></span>
-                            <p className='text-[#0B1906]'>Cash Out Request</p>
+                        <Link to={'/agent/cash-out-request'} className='border p-6 flex flex-col justify-center items-center gap-2 w-48 h-52 duration-200 hover:scale-105 hover:border-[#1A1A1B]'>
+                            <span className='text-6xl text-[#1A1A1B]'><IoLogOut /></span>
+                            <p className='text-[#1A1A1B]'>Cash Out Request</p>
                         </Link>
-                        <Link to={'/agent/transaction/history/cash-in'} className='border p-6 flex flex-col justify-center items-center gap-2 w-48 h-52 duration-200 hover:scale-105 hover:border-[#0B1906]'>
-                            <span className='text-6xl text-[#0B1906]'><FaMoneyCheckDollar /></span>
-                            <p className='text-[#0B1906]'>Transactions</p>
+                        <Link to={'/agent/transaction/history/cash-in'} className='border p-6 flex flex-col justify-center items-center gap-2 w-48 h-52 duration-200 hover:scale-105 hover:border-[#1A1A1B]'>
+                            <span className='text-6xl text-[#1A1A1B]'><FaMoneyCheckDollar /></span>
+                            <p className='text-[#1A1A1B]'>Transactions</p>
                         </Link>
                     </div>
                 </div>
@@ -159,7 +159,7 @@ const Home = () => {
     if (userInfo?.role === 'admin') {
         return (
             <div>
-                <div className='bg-[#0B1906] py-6 px-9 flex  flex-col lg:flex-row justify-between items-center gap-4'>
+                <div className='bg-[#1A1A1B] py-6 px-9 flex  flex-col lg:flex-row justify-between items-center gap-4'>
                     <img className='w-32 lg:w-48' src={logo} alt="" />
                     <h1 className=' text-xl lg:text-2xl text-white text-center font-bold'>Dashboard</h1>
                     <div className='text-white flex justify-center items-center gap-3'>

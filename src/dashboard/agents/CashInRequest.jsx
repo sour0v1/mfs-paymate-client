@@ -45,9 +45,15 @@ const CashInRequest = () => {
         }
     }
 
+    // if (!cashInRequests?.length) {
+    //     return <div className='w-full flex justify-center items-center'>
+    //         <span> There are currently no transactions</span>
+    //     </div>
+    // }
+
 
     return (
-        <div className='bg-[#0B1906] min-h-screen w-full'>
+        <div className='bg-[#1A1A1B] min-h-screen w-full'>
             <MiniHeader icon={<BsCashCoin />} text={'Cash In Request'}></MiniHeader>
             {
                 isFetching || isPending ?
@@ -55,42 +61,49 @@ const CashInRequest = () => {
                         loading...
                     </div> :
                     <div className='max-w-5xl mx-auto text-white pt-24 pb-9 overflow-x-auto'>
-                        <table className="table">
-                            {/* head */}
-                            <thead>
-                                <tr className='text-white'>
-                                    <th></th>
-                                    <th>Type</th>
-                                    <th>Amount</th>
-                                    <th>From</th>
-                                    <th>Status</th>
-                                    <th>Date</th>
-                                </tr>
-                            </thead>
-                            {
-                                cashInRequests?.map((transaction, idx) => <tbody key={idx}>
-                                    {/* row 1 */}
-                                    <tr>
-                                        <th>{idx + 1}</th>
-                                        <td>Cash in request</td>
-                                        <td>{transaction?.balance}</td>
-                                        <td>{transaction?.from}</td>
-                                        <td>{transaction?.accepted ? <span>Confirmed</span> : <button onClick={() => {
-                                            handleCashInRequest(transaction?._id)
-                                        }} className='inline-block px-2 py-1 rounded-full bg-white text-[#0B1906]'>Confirm</button>}</td>
-                                        <td>{transaction?.date}</td>
-                                    </tr>
-                                </tbody>)
-                            }
-                        </table>
+                        {
+                            cashInRequests?.length > 0 ?
+                                <table className="table">
+                                    {/* head */}
+                                    <thead>
+                                        <tr className='text-white'>
+                                            <th></th>
+                                            <th>Type</th>
+                                            <th>Amount</th>
+                                            <th>From</th>
+                                            <th>Status</th>
+                                            <th>Date</th>
+                                        </tr>
+                                    </thead>
+                                    {
+                                        cashInRequests?.map((transaction, idx) => <tbody key={idx}>
+                                            {/* row 1 */}
+                                            <tr>
+                                                <th>{idx + 1}</th>
+                                                <td>Cash in request</td>
+                                                <td>{transaction?.balance}</td>
+                                                <td>{transaction?.from}</td>
+                                                <td>{transaction?.accepted ? <span>Confirmed</span> : <button onClick={() => {
+                                                    handleCashInRequest(transaction?._id)
+                                                }} className='inline-block px-2 py-1 rounded-full bg-white text-[#1A1A1B]'>Confirm</button>}</td>
+                                                <td>{transaction?.date}</td>
+                                            </tr>
+                                        </tbody>)
+                                    }
+                                </table> :
+                                <div className='w-full text-center'>
+                                    <span> There are currently no Cash In request</span>
+                                </div>
+                        }
                     </div>
 
             }
+
             {message &&
                 <div className='absolute inset-0 bg-black bg-opacity-80 flex justify-center items-center'>
                     <div className='bg-white p-4 w-full lg:w-1/3 mx-4 lg:mx-0 relative rounded-xl'>
                         <button className='absolute top-3 right-4 text-xl p-2 rounded-full hover:bg-gray-100' onClick={() => setMessage(false)}><RxCross1 /></button>
-                        <p className='my-16 text-xl text-[#0B1906]'>{message}</p>
+                        <p className='my-16 text-xl text-[#1A1A1B]'>{message}</p>
                     </div>
                 </div>
             }

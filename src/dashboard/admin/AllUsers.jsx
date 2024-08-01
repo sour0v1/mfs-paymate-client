@@ -27,7 +27,7 @@ const AllUsers = () => {
         // refetch();
     }
     if (isPending || isFetching) {
-        return <div className='w-full h-full flex justify-center items-center text-[#0B1906]'>loading...</div>
+        return <div className='w-full h-full flex justify-center items-center text-[#1A1A1B]'>loading...</div>
     }
     return (
         <div>
@@ -50,7 +50,7 @@ const AllUsers = () => {
                                 <td>{user?.name}</td>
                                 <td>{user?.phone}</td>
                                 <td>{user?.email}</td>
-                                <td><button onClick={() => handleVerifyUser(user?._id)} className={`${user?.verified ? 'text-[#0B1906]' : 'text-black border-b border-black'}`}>{user?.verified ? 'Verified' : 'Verify'}</button></td>
+                                <td><button onClick={() => handleVerifyUser(user?._id)} className={`${user?.verified ? 'text-[#1A1A1B]' : 'text-black border-b border-black'}`}>{user?.verified ? 'Verified' : 'Verify'}</button></td>
                             </tr>)
                         }
                     </tbody>
