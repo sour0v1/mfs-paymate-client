@@ -1,6 +1,7 @@
 import React, { createContext, useState } from 'react';
 import useAxiosSecure from '../hook/useAxiosSecure';
 import { useQuery } from '@tanstack/react-query';
+import axios from 'axios';
 
 export const AuthContext = createContext(null);
 
@@ -8,11 +9,12 @@ const Provider = ({ children }) => {
     const [userIdentity, setUserIdentity] = useState(null);
     console.log(userIdentity);
 
-    const axiosSecure = useAxiosSecure();
+    // const axios = useAxiosSecure();
     const { data: userInfo, isPending } = useQuery({
         queryKey: ['userInfo'],
         queryFn: async () => {
-            const res = await axiosSecure.get(`/user-info?userIdentity=${userIdentity}`)
+            const res = await axios.get(`http://localhost:5000/user-info?userIdentity=${userIdentity}`)
+            // have to change by the server side domain
             return res.data;
         },
         // refetchInterval : 100
