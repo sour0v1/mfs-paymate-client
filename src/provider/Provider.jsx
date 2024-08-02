@@ -13,7 +13,7 @@ const Provider = ({ children }) => {
     const { data: userInfo, isPending } = useQuery({
         queryKey: ['userInfo'],
         queryFn: async () => {
-            const res = await axios.get(`http://localhost:5000/user-info?userIdentity=${userIdentity}`)
+            const res = await axios.get(`https://mfs-paymate-server.vercel.app/user-info?userIdentity=${userIdentity}`)
             // have to change by the server side domain
             return res.data;
         },

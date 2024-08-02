@@ -28,12 +28,12 @@ const Home = () => {
 
 
     const handleLogOut = async () => {
-        // Have to do
-        // const res = await axiosSecure.post(`/logout?user=${user}`)
-        // console.log(res?.data);
+
         const local = localStorage.removeItem('userIdentity');
         console.log(local);
         setUserIdentity(local);
+        const res = await axiosSecure.post(`/logout`)
+        console.log(res?.data);
         navigate('/');
     }
 
