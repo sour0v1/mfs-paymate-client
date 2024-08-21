@@ -15,3 +15,19 @@ Website live link - [Paymate](https://mfs-paymate.web.app/)
 - React
 - Axios
 - React Query
+
+## Installation and Set Up
+This project is set up using [Vite](https://vitejs.dev/guide/), a fast build tool and development server, to enhance performance during development.
+**1. Clone The Repository:**
+```
+git clone https://github.com/sour0v1/mfs-paymate-client.git
+cd mfs-paymate-client
+```
+**2. Install Dependencies:**
+```
+npm install
+```
+**2. Start Depelopment Server:**
+```
+npm run dev
+```
