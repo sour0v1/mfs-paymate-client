@@ -8,3 +8,10 @@ Website live link - [Paymate](https://mfs-paymate.web.app/)
 - **Cash In/Out Requests :** Users can request cash in and cash out from agents.
 - **Transaction History :** Users and agents can view their transaction history.
 - **Agent Features :** Agents can view and accept cash-in and cash-out requests from users.
+
+## Technology Stack
+- HTML
+- Tailwind CSS
+- React
+- Axios
+- React Query
