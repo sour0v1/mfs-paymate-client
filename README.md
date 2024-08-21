@@ -1,8 +1,4 @@
-# React + Vite
+# Paymate Client-Side
+This repository contains the client-side code for the Pamate web application. Pamate allows users to send money, request cash in and cash out from agents, and view transaction history. Agents can accept cash-in and cash-out requests and view all transactions.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
-
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Website live link - [Paymate](https://mfs-paymate.web.app/)
